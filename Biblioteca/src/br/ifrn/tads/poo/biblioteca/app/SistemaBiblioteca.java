@@ -1,12 +1,14 @@
 package br.ifrn.tads.poo.biblioteca.app;
+
 import br.ifrn.tads.poo.biblioteca.model.Banco;
 import br.ifrn.tads.poo.biblioteca.model.Biblioteca;
-import br.ifrn.tads.poo.view.InterfaceBiblioteca;
+import br.ifrn.tads.poo.biblioteca.view.TelaLogin;
+
 
 public class SistemaBiblioteca {
     public static void main(String[] args) {
-        //InterfaceBiblioteca painel = new InterfaceBiblioteca();
-        //painel.setVisible(true);
+        TelaLogin telaLogin = new TelaLogin();
+       telaLogin.setVisible(true);
         Banco.conectarBanco();        
         Biblioteca biblioteca = new Biblioteca();
         String[] valores = {"'teste'"};
