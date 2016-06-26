@@ -6,7 +6,7 @@ public class SistemaBiblioteca {
     public static void main(String[] args) {
         InterfaceBiblioteca painel = new InterfaceBiblioteca();
         painel.setVisible(true);
-        Banco.conectarBanco(); 
+        Banco.conectarBanco();         
     }
         
     //Exemplo do uso de json do jdbc

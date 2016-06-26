@@ -1,9 +1,6 @@
 package br.ifrn.tads.poo.biblioteca.model;
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.postgresql.util.PSQLException;
 
 public class Banco {
     private static final String dataBaseUrl = "jdbc:postgresql://localhost:5432/";
