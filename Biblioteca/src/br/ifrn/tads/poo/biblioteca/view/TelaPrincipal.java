@@ -29,8 +29,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabelFundoTelaPrincipal = new javax.swing.JLabel();
         jMenuBarTelaPrincipal = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuCadastrar = new javax.swing.JMenu();
+        jMenuItemCliente = new javax.swing.JMenuItem();
+        jMenuItemLivro = new javax.swing.JMenuItem();
+        jMenuBuscar = new javax.swing.JMenu();
+        jMenuItemBuscarCliente = new javax.swing.JMenuItem();
+        jMenuItemBuscarLivro = new javax.swing.JMenuItem();
+        jMenuSair = new javax.swing.JMenu();
+        jMenuItemLogOff = new javax.swing.JMenuItem();
+        jMenuItemFecharPrograma = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -42,19 +49,84 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBarTelaPrincipal.setBackground(new java.awt.Color(0, 102, 102));
         jMenuBarTelaPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu1.setText("File");
-        jMenuBarTelaPrincipal.add(jMenu1);
+        jMenuCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuCadastrar.setText("Cadastrar");
 
-        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu2.setText("Edit");
-        jMenuBarTelaPrincipal.add(jMenu2);
+        jMenuItemCliente.setText("Cliente");
+        jMenuItemCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemClienteActionPerformed(evt);
+            }
+        });
+        jMenuCadastrar.add(jMenuItemCliente);
+
+        jMenuItemLivro.setText("Livro");
+        jMenuItemLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLivroActionPerformed(evt);
+            }
+        });
+        jMenuCadastrar.add(jMenuItemLivro);
+
+        jMenuBarTelaPrincipal.add(jMenuCadastrar);
+
+        jMenuBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuBuscar.setText("Buscar");
+
+        jMenuItemBuscarCliente.setText("Cliente");
+        jMenuBuscar.add(jMenuItemBuscarCliente);
+
+        jMenuItemBuscarLivro.setText("Livro");
+        jMenuBuscar.add(jMenuItemBuscarLivro);
+
+        jMenuBarTelaPrincipal.add(jMenuBuscar);
+
+        jMenuSair.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuSair.setText("Sair");
+
+        jMenuItemLogOff.setText("Trocar Usuário");
+        jMenuItemLogOff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLogOffActionPerformed(evt);
+            }
+        });
+        jMenuSair.add(jMenuItemLogOff);
+
+        jMenuItemFecharPrograma.setText("Fechar Programa");
+        jMenuItemFecharPrograma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemFecharProgramaActionPerformed(evt);
+            }
+        });
+        jMenuSair.add(jMenuItemFecharPrograma);
+
+        jMenuBarTelaPrincipal.add(jMenuSair);
 
         setJMenuBar(jMenuBarTelaPrincipal);
 
         setSize(new java.awt.Dimension(816, 639));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    // Sai do atual usuário pelo sub menu trocar usuário, contido no menu SAIR.
+    private void jMenuItemLogOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLogOffActionPerformed
+       TelaLogin telaLogin = new TelaLogin();
+        telaLogin.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItemLogOffActionPerformed
+    // Fecha programa pelo sub menu fechar do menu SAIR.
+    private void jMenuItemFecharProgramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFecharProgramaActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItemFecharProgramaActionPerformed
+     //Abre tela de cadastro de cliente ao clicar no sub menu do menu CADASTRAR.
+    private void jMenuItemLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLivroActionPerformed
+        CadastrarItem cadastrarItem = new CadastrarItem();
+        cadastrarItem.setVisible(true);
+    }//GEN-LAST:event_jMenuItemLivroActionPerformed
+    //Abre tela de cadastro de cliente ao clicar no sub menu do menu CADASTRAR. 
+    private void jMenuItemClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemClienteActionPerformed
+        CadastrarCliente cadastroCliente = new CadastrarCliente();
+        cadastroCliente.setVisible(true);
+    }//GEN-LAST:event_jMenuItemClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -93,8 +165,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelFundoTelaPrincipal;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBarTelaPrincipal;
+    private javax.swing.JMenu jMenuBuscar;
+    private javax.swing.JMenu jMenuCadastrar;
+    private javax.swing.JMenuItem jMenuItemBuscarCliente;
+    private javax.swing.JMenuItem jMenuItemBuscarLivro;
+    private javax.swing.JMenuItem jMenuItemCliente;
+    private javax.swing.JMenuItem jMenuItemFecharPrograma;
+    private javax.swing.JMenuItem jMenuItemLivro;
+    private javax.swing.JMenuItem jMenuItemLogOff;
+    private javax.swing.JMenu jMenuSair;
     // End of variables declaration//GEN-END:variables
 }

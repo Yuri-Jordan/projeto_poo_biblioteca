@@ -1,6 +1,10 @@
 
 package br.ifrn.tads.poo.biblioteca.view;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import jdk.nashorn.internal.scripts.JO;
+
 public class TelaLogin extends javax.swing.JFrame {
 
     public TelaLogin() {
@@ -20,8 +24,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabelIconeTelaLogin = new javax.swing.JLabel();
         jLabelUserLogin = new javax.swing.JLabel();
         jLabelSenha = new javax.swing.JLabel();
+        jPasswordFieldSenha = new javax.swing.JPasswordField();
         jTextFieldUserLogin = new javax.swing.JTextField();
-        jTextFieldUserSenha = new javax.swing.JTextField();
         jLabelFundoTelaLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,6 +56,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabelSenha.setText("Senha :");
         getContentPane().add(jLabelSenha);
         jLabelSenha.setBounds(120, 260, 50, 30);
+        getContentPane().add(jPasswordFieldSenha);
+        jPasswordFieldSenha.setBounds(170, 260, 180, 30);
 
         jTextFieldUserLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,14 +66,6 @@ public class TelaLogin extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldUserLogin);
         jTextFieldUserLogin.setBounds(170, 230, 180, 30);
-
-        jTextFieldUserSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUserSenhaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextFieldUserSenha);
-        jTextFieldUserSenha.setBounds(170, 260, 180, 30);
 
         jLabelFundoTelaLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/telaLogin.jpg"))); // NOI18N
         getContentPane().add(jLabelFundoTelaLogin);
@@ -80,52 +78,17 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jTextFieldUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUserLoginActionPerformed
-
-    private void jTextFieldUserSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUserSenhaActionPerformed
-
+    // Testa se login e senha nos campo são válidos,se sim,abre tela principal se ñ, exibe um pop up com erro!
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        TelaPrincipal telaPrincipal = new TelaPrincipal();
-        telaPrincipal.setVisible(true);
-        dispose();
+        if (jTextFieldUserLogin.getText().equals("admin") && jPasswordFieldSenha.getText().equals("123")){
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.setVisible(true);
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Login ou Senha inválido.","Erro",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new TelaLogin().setVisible(true);
-//            }
-//        });
-//
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
@@ -133,7 +96,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelIconeTelaLogin;
     private javax.swing.JLabel jLabelSenha;
     private javax.swing.JLabel jLabelUserLogin;
+    private javax.swing.JPasswordField jPasswordFieldSenha;
     private javax.swing.JTextField jTextFieldUserLogin;
-    private javax.swing.JTextField jTextFieldUserSenha;
     // End of variables declaration//GEN-END:variables
 }
