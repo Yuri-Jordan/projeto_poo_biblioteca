@@ -1,4 +1,4 @@
-package br.ifrn.tads.poo.biblioteca.model;
+package br.ifrn.tads.poo.biblioteca.Dao;
 
 import java.sql.*;
 
@@ -28,7 +28,7 @@ public class Banco {
     }
     
     public static void montarEstrutura(){
-        String[] sqls = new String[3];
+        String[] sqls = new String[4];
         System.out.print("Verificando se é necessário montar as Tabelas...");
         //Tabela Bibliotecas
         sqls[0] = "CREATE TABLE IF NOT EXISTS bibliotecas("
@@ -48,18 +48,24 @@ public class Banco {
                 + ")";
         //Tabela itens do acervo
         sqls[2] = "CREATE TABLE IF NOT EXISTS itemAcervos("
-                + "id SERIAL PRIMARY KEY NOT NULL,"
-                + "usuarios_id INT NOT NULL,"
+                + "id SERIAL PRIMARY KEY NOT NULL,"                
                 + "bibliotecas_id INT NOT NULL,"
-                + "custo DECIMAL NOT NULL,"
+                + "custo DECIMAL NOT NULL,"                
+                + "codigoItem INT NOT NULL,"                
+                + "especifico JSON NOT NULL DEFAULT '{}',"
+                + "CONSTRAINT biblioteca_acervo_id FOREIGN KEY (bibliotecas_id) REFERENCES bibliotecas (id)"
+                + ")";
+        //Tabela Alugados
+        sqls[3] = "CREATE TABLE IF NOT EXISTS alugado("
+                + "id SERIAL PRIMARY KEY NOT NULL,"
+                + "user_id INT NOT NULL,"
+                + "itemAcervo_id INT NOT NULL,"
                 + "dataAluguel TIMESTAMP WITHOUT TIME ZONE,"
                 + "dataDevolucao TIMESTAMP WITHOUT TIME ZONE,"
-                + "codigoItem INT NOT NULL,"
                 + "pago BOOLEAN NOT NULL,"
-                + "especifico JSON NOT NULL DEFAULT '{}',"
-                + "CONSTRAINT usuario_id FOREIGN KEY (usuarios_id) REFERENCES usuarios (id),"
-                + "CONSTRAINT biblioteca_acervo_id FOREIGN KEY (bibliotecas_id) REFERENCES bibliotecas (id)"
-                + ")";                
+                + "CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES usuarios (id),"
+                + "CONSTRAINT itemAcervo_id FOREIGN KEY (itemAcervo_id) REFERENCES itemAcervos (id)"
+                + ");";
         
         for(String s: sqls){
             try {

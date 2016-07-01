@@ -1,17 +1,12 @@
 package br.ifrn.tads.poo.biblioteca.app;
-import br.ifrn.tads.poo.biblioteca.model.Banco;
-import br.ifrn.tads.poo.biblioteca.model.Biblioteca;
-import br.ifrn.tads.poo.view.InterfaceBiblioteca;
+import br.ifrn.tads.poo.biblioteca.Dao.Banco;
+import java.sql.SQLException;
 
 public class SistemaBiblioteca {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         //InterfaceBiblioteca painel = new InterfaceBiblioteca();
         //painel.setVisible(true);
         Banco.conectarBanco();        
-        Biblioteca biblioteca = new Biblioteca();
-        String[] valores = {"'teste'"};
-        String[] campos = {"nome"};
-        biblioteca.create(valores);
     }
         
     //Exemplo do uso de json do jdbc
