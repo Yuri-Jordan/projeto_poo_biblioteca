@@ -1,11 +1,12 @@
 package br.ifrn.tads.poo.biblioteca.app;
 import br.ifrn.tads.poo.biblioteca.Dao.Banco;
+import br.ifrn.tads.poo.biblioteca.view.TelaLogin;
 import java.sql.SQLException;
 
 public class SistemaBiblioteca {
     public static void main(String[] args) throws SQLException {
-        //InterfaceBiblioteca painel = new InterfaceBiblioteca();
-        //painel.setVisible(true);
+        TelaLogin login = new TelaLogin();
+        login.setVisible(true);
         Banco.conectarBanco();        
     }
         

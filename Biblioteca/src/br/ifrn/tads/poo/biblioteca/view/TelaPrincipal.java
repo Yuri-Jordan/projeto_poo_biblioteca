@@ -27,6 +27,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jLabelFundoTelaPrincipal = new javax.swing.JLabel();
         jMenuBarTelaPrincipal = new javax.swing.JMenuBar();
         jMenuCadastrar = new javax.swing.JMenu();
@@ -39,8 +46,58 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItemLogOff = new javax.swing.JMenuItem();
         jMenuItemFecharPrograma = new javax.swing.JMenuItem();
 
+        jButton2.setText("jButton2");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
+        jPanel2.setLayout(null);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_user.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3);
+        jButton3.setBounds(90, 50, 220, 170);
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livroAd.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton4);
+        jButton4.setBounds(450, 50, 220, 170);
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(20, 10, 760, 270);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
+        jPanel3.setLayout(null);
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/Users-User-icon.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton5);
+        jButton5.setBounds(90, 50, 220, 170);
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton6);
+        jButton6.setBounds(450, 50, 220, 170);
+
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(20, 290, 760, 270);
 
         jLabelFundoTelaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/fundoTelaPrincipal.png"))); // NOI18N
         getContentPane().add(jLabelFundoTelaPrincipal);
@@ -60,7 +117,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastrar.add(jMenuItemCliente);
 
-        jMenuItemLivro.setText("Livro");
+        jMenuItemLivro.setText("Ítem");
         jMenuItemLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemLivroActionPerformed(evt);
@@ -74,9 +131,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBuscar.setText("Buscar");
 
         jMenuItemBuscarCliente.setText("Cliente");
+        jMenuItemBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBuscarClienteActionPerformed(evt);
+            }
+        });
         jMenuBuscar.add(jMenuItemBuscarCliente);
 
-        jMenuItemBuscarLivro.setText("Livro");
+        jMenuItemBuscarLivro.setText("Ítem");
+        jMenuItemBuscarLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBuscarLivroActionPerformed(evt);
+            }
+        });
         jMenuBuscar.add(jMenuItemBuscarLivro);
 
         jMenuBarTelaPrincipal.add(jMenuBuscar);
@@ -128,6 +195,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastroCliente.setVisible(true);
     }//GEN-LAST:event_jMenuItemClienteActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jMenuItemClienteActionPerformed(evt);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       jMenuItemLivroActionPerformed(evt);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        RUDcliente buscarCliente = new RUDcliente();
+        buscarCliente.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        RUDitem buscarItem = new RUDitem();
+        buscarItem. setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jMenuItemBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBuscarClienteActionPerformed
+         jButton5ActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItemBuscarClienteActionPerformed
+
+    private void jMenuItemBuscarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBuscarLivroActionPerformed
+        jButton6ActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItemBuscarLivroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -164,6 +257,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabelFundoTelaPrincipal;
     private javax.swing.JMenuBar jMenuBarTelaPrincipal;
     private javax.swing.JMenu jMenuBuscar;
@@ -175,5 +273,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemLivro;
     private javax.swing.JMenuItem jMenuItemLogOff;
     private javax.swing.JMenu jMenuSair;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
