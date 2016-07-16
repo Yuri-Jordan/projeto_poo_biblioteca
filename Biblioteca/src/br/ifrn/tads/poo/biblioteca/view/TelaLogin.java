@@ -1,14 +1,19 @@
 
 package br.ifrn.tads.poo.biblioteca.view;
 
+import br.ifrn.tads.poo.biblioteca.Dao.UsuarioDao;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import jdk.nashorn.internal.scripts.JO;
 
 public class TelaLogin extends javax.swing.JFrame {
-
+    private UsuarioDao user;
+    private ArrayList usuarios;
+    
     public TelaLogin() {
         initComponents();
+        user = new UsuarioDao();
     }
 
     /**
@@ -80,6 +85,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUserLoginActionPerformed
     // Testa se login e senha nos campo são válidos,se sim,abre tela principal se ñ, exibe um pop up com erro!
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
+        
         if (jTextFieldUserLogin.getText().equals("admin") && jPasswordFieldSenha.getText().equals("123")){
             TelaPrincipal telaPrincipal = new TelaPrincipal();
             telaPrincipal.setVisible(true);

@@ -28,7 +28,7 @@ public class Banco {
     }
     
     public static void montarEstrutura(){
-        String[] sqls = new String[4];
+        String[] sqls = new String[6];
         System.out.print("Verificando se é necessário montar as Tabelas...");
         //Tabela Bibliotecas
         sqls[0] = "CREATE TABLE IF NOT EXISTS bibliotecas("
@@ -66,6 +66,10 @@ public class Banco {
                 + "CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES usuarios (id),"
                 + "CONSTRAINT itemAcervo_id FOREIGN KEY (itemAcervo_id) REFERENCES itemAcervos (id)"
                 + ");";
+        sqls[4] = "INSERT INTO bibliotecas (nome) SELECT 'central' WHERE NOT EXISTS ( SELECT id from bibliotecas where nome like 'central')";
+        sqls[5] = "INSERT INTO usuarios (bibliotecas_id,codUsuario,nome,endereco,cpf,role) "
+                + " SELECT (SELECT id FROM bibliotecas WHERE nome like 'central'),0001,'admin','user padrao','00000000000','admin' "
+                + "     WHERE NOT EXISTS (SELECT id FROM usuarios WHERE nome like 'admin')";
         
         for(String s: sqls){
             try {
