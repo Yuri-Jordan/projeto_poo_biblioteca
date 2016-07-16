@@ -39,9 +39,9 @@ public class Banco {
         sqls[1] = "CREATE TABLE IF NOT EXISTS usuarios("
                 + "id SERIAL PRIMARY KEY NOT NULL,"
                 + "bibliotecas_id INT NOT NULL,"
-                + "codUsuario INT NOT NULL,"
                 + "nome VARCHAR(255) NOT NULL,"
-                + "endereco TEXT NOT NULL,"
+                + "senha VARCHAR(255) NOT NULL,"
+                + "endereco TEXT,"
                 + "cpf VARCHAR(11),"
                 + "role VARCHAR(10) NOT NULL,"
                 + "CONSTRAINT biblioteca_usuarios_id FOREIGN KEY (bibliotecas_id) REFERENCES bibliotecas (id)"
@@ -67,8 +67,8 @@ public class Banco {
                 + "CONSTRAINT itemAcervo_id FOREIGN KEY (itemAcervo_id) REFERENCES itemAcervos (id)"
                 + ");";
         sqls[4] = "INSERT INTO bibliotecas (nome) SELECT 'central' WHERE NOT EXISTS ( SELECT id from bibliotecas where nome like 'central')";
-        sqls[5] = "INSERT INTO usuarios (bibliotecas_id,codUsuario,nome,endereco,cpf,role) "
-                + " SELECT (SELECT id FROM bibliotecas WHERE nome like 'central'),0001,'admin','user padrao','00000000000','admin' "
+        sqls[5] = "INSERT INTO usuarios (bibliotecas_id,nome,senha,endereco,cpf,role) "
+                + " SELECT (SELECT id FROM bibliotecas WHERE nome like 'central'),'admin','senha','user padrao','00000000000','admin' "
                 + "     WHERE NOT EXISTS (SELECT id FROM usuarios WHERE nome like 'admin')";
         
         for(String s: sqls){

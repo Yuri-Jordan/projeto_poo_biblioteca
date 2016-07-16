@@ -1,5 +1,6 @@
 package br.ifrn.tads.poo.biblioteca.Dao;
 
+import br.ifrn.tads.poo.biblioteca.usuario.Administrador;
 import br.ifrn.tads.poo.biblioteca.usuario.Usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,9 +24,8 @@ public class UsuarioDao extends AbstractModels{
         return usuarios;
     }
 
-    @Override
-    public ArrayList<Usuario> read(String options) {
-        rs = (ResultSet)super.read(options);
+    public ArrayList<Usuario> read(Usuario usuario) {
+        rs = (ResultSet)super.read(usuario.toStringSelect());
         popularLista(rs);
         return usuarios;
     }               
@@ -45,10 +45,16 @@ public class UsuarioDao extends AbstractModels{
     private void popularLista(ResultSet rs){
         try {
             while(rs.next()){
-                Usuario b = new Usuario();
+                Usuario b;
+                
+                if(rs.getString("role").equals("admin")){
+                    b = new Administrador();
+                } else {
+                    b = new Usuario();
+                }
+                                
                 b.setId(rs.getInt("id"));
                 b.setBiblioteca_id(rs.getInt("bibliotecas_id"));
-                b.setCodUsuario(rs.getInt("codusuario"));
                 b.setNome(rs.getString("nome"));
                 b.setEndereco(rs.getString("endereco"));
                 b.setCpf(rs.getString("cpf"));  

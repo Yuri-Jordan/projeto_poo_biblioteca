@@ -15,7 +15,7 @@ public abstract class AbstractModels {
      * Realiza um select no banco de dados     
      * @return ResultSet rs Retorna um objeto do tipo result set que contem as row da consulta especificada
      */
-    public Object read(){           
+    protected Object read(){           
         ResultSet rs;
         try {
             rs = Banco.getStmt().executeQuery("SELECT * FROM "+table);
@@ -31,7 +31,7 @@ public abstract class AbstractModels {
      * @param options Recebe uma strings.(ex: where,order by, limit e etc.)
      * @return ResultSet rs Retorna um objeto do tipo result set que contem as row da consulta especificada
      */
-    public Object read(String options){    
+    protected Object read(String options){    
         ResultSet rs;
         String SQL = "SELECT * FROM "+table+" "+options;
         try {
@@ -47,7 +47,7 @@ public abstract class AbstractModels {
      * Delete um registro no banco especificado nas options
      * @param id o id da linha que deseja apagar
      */
-    public void delete(int id){        
+    protected void delete(int id){        
         if(id>0){
             String SQL = "DELETE FROM "+table+" WHERE id="+id;
             try {
@@ -64,7 +64,7 @@ public abstract class AbstractModels {
      * Cria um registro na tabela. Este metodo deve receber os elementos na sequencia correta, todos eles devem ser inseridos menos o 'id' - autoincrement.
      * @param values Recebe uma string contendo o valor a ser inserido na query. OBS, strings sql devem ser colocadas entre '' ex:" 'teste' ".
      */
-    public void create(String values){        
+    protected void create(String values){        
         
         try {
             Banco.getStmt().executeUpdate("INSERT INTO "+table+" VALUES(default,"+values+")");
@@ -79,7 +79,7 @@ public abstract class AbstractModels {
      * @param id um inteiro que representa o identificador da linha a ser modificada
      * @param updates Uma string no formato aceito pelos update sql. Usa os metodos .toStringUpdate()
      */
-    public void update(int id,String updates){
+    protected void update(int id,String updates){
         try {            
             Banco.getStmt().executeUpdate("UPDATE "+table+" SET "+updates+" WHERE id="+id);
         } catch (SQLException ex) {

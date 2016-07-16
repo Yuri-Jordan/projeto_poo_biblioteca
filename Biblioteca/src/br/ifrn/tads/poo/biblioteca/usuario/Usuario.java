@@ -3,13 +3,13 @@ package br.ifrn.tads.poo.biblioteca.usuario;
 import br.ifrn.tads.poo.biblioteca.acervo.ItemAcervo;
 
 public class Usuario {
-    private int id;
-    private int biblioteca_id;
-    private int codUsuario;
-    private String nome;
-    private String endereco;
-    private String cpf;
-    private String role;
+    protected int id;
+    protected int biblioteca_id;
+    protected String nome;
+    protected String senha;
+    protected String endereco;
+    protected String cpf;
+    protected String role;
 
     public Usuario() {
         this.role = "padrao";
@@ -26,23 +26,50 @@ public class Usuario {
 
     public String toStringUpdate(){
         StringBuilder s = new StringBuilder();
-        s.append(" bibliotecas_id=").append(biblioteca_id).append(" ");
-        s.append(" codusuario=").append(codUsuario).append(" ");
-        s.append(" nome='").append(nome).append("' ");
-        s.append(" endereco='").append(endereco).append("' ");
-        s.append(" cpf='").append(cpf).append("' ");
-        s.append(" role='").append(role).append("' ");
+        if(biblioteca_id!=0)
+            s.append(" bibliotecas_id=").append(biblioteca_id).append(", ");
+        if(nome!=null)
+            s.append(" nome='").append(nome).append("', ");
+        if(senha!=null)
+            s.append(" senha='").append(senha).append("', ");
+        if(endereco!=null)
+            s.append(" endereco='").append(endereco).append("', ");
+        if(cpf!=null)
+            s.append(" cpf='").append(cpf).append("', ");
+        if(role!=null)
+            s.append(" role='").append(role).append("' ");
         return s.toString();
     }
     
     public String toStringCreate(){
         StringBuilder s = new StringBuilder();
         s.append(" ").append(biblioteca_id).append(", ");
-        s.append(" ").append(codUsuario).append(", ");
         s.append(" '").append(nome).append("', ");
+        s.append(" '").append(senha).append("', ");
         s.append(" '").append(endereco).append("', ");
         s.append(" '").append(cpf).append("', ");
         s.append(" '").append(role).append("' ");
+        return s.toString();
+    }
+    
+    public String toStringSelect(){
+         StringBuilder s = new StringBuilder();
+        s.append(" WHERE ");
+        
+        if(id!=0)
+            s.append(" id=").append(id).append(" AND ");
+        if(biblioteca_id!=0)
+            s.append(" bibliotecas_id=").append(biblioteca_id).append(" AND ");
+        if(nome!=null)
+            s.append(" nome like '").append(nome).append("' AND ");
+        if(senha!=null)
+            s.append(" senha like '").append(senha).append("' AND ");
+        if(endereco!=null)
+            s.append(" endereco like '").append(endereco).append("' AND ");
+        if(cpf!=null)
+            s.append(" cpf like '").append(cpf).append("' AND ");
+        if(role!=null)
+            s.append(" role like '").append(role).append("'");
         return s.toString();
     }
     
@@ -54,14 +81,6 @@ public class Usuario {
         this.id = id;
     }
 
-    public int getCodUsuario() {
-        return codUsuario;
-    }
-
-    public void setCodUsuario(int codUsuario) {
-        this.codUsuario = codUsuario;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -70,6 +89,14 @@ public class Usuario {
         this.nome = nome;
     }
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+        
     public String getEndereco() {
         return endereco;
     }
