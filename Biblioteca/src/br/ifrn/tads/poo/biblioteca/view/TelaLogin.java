@@ -1,19 +1,19 @@
 
 package br.ifrn.tads.poo.biblioteca.view;
 
-import br.ifrn.tads.poo.biblioteca.Dao.UsuarioDao;
-import java.util.ArrayList;
+import br.ifrn.tads.poo.biblioteca.controller.UsuarioController;
+import br.ifrn.tads.poo.biblioteca.usuario.Administrador;
+import br.ifrn.tads.poo.biblioteca.usuario.Usuario;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import jdk.nashorn.internal.scripts.JO;
 
 public class TelaLogin extends javax.swing.JFrame {
-    private UsuarioDao user;
-    private ArrayList usuarios;
+    private UsuarioController usuarioController;
     
     public TelaLogin() {
+        usuarioController = new UsuarioController();
         initComponents();
-        user = new UsuarioDao();
     }
 
     /**
@@ -85,11 +85,19 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUserLoginActionPerformed
     // Testa se login e senha nos campo são válidos,se sim,abre tela principal se ñ, exibe um pop up com erro!
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        
-        if (jTextFieldUserLogin.getText().equals("admin") && jPasswordFieldSenha.getText().equals("123")){
-            TelaPrincipal telaPrincipal = new TelaPrincipal();
-            telaPrincipal.setVisible(true);
-            dispose();
+        //Verifica se o usuario existe no sistema. o usuario padrao é login:admin | passowrd:senha
+        Usuario user = usuarioController.login(jTextFieldUserLogin.getText(),jPasswordFieldSenha.getText());
+        if (user!=null){
+            
+            //Yuri depois de verificar se ele logou, aqui vc verifica que tipo de usuario ele é
+            if(user instanceof Administrador){  //Administrador?
+                TelaPrincipal telaPrincipal = new TelaPrincipal();
+                telaPrincipal.setVisible(true);
+                dispose();
+            } else if(user instanceof Usuario) { //Padrão?
+            
+            }
+                        
         }else{
             JOptionPane.showMessageDialog(null, "Login ou Senha inválido.","Erro",JOptionPane.ERROR_MESSAGE);
         }

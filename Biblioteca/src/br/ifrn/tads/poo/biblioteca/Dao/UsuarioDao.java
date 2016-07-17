@@ -30,7 +30,7 @@ public class UsuarioDao extends AbstractModels{
         return usuarios;
     }               
 
-    public void create(Usuario usuario) {          
+    public void create(Usuario usuario) {
         super.create(usuario.toStringCreate());
     }
 

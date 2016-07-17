@@ -10,7 +10,12 @@ import java.util.ArrayList;
  */
 public class UsuarioController {
     
-    public static Usuario login(Usuario user){
+    //Função de login para o usuario
+    public Usuario login(String nome,String senha){
+        Usuario user = new Usuario();
+        user.setNome(nome);
+        user.setSenha(senha);
+        user.setRole(null);
         UsuarioDao uDao = new UsuarioDao();
         ArrayList<Usuario> lista = uDao.read(user);                
         

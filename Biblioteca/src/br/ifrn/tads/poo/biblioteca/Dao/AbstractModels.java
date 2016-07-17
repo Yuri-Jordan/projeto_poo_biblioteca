@@ -33,7 +33,10 @@ public abstract class AbstractModels {
      */
     protected Object read(String options){    
         ResultSet rs;
-        String SQL = "SELECT * FROM "+table+" "+options;
+        String SQL = "SELECT * FROM "+table+" "+options;        
+        if(SQL.trim().endsWith("AND")){
+            SQL = SQL.substring(0, SQL.length()-4);
+        }        
         try {
             rs = Banco.getStmt().executeQuery(SQL);
             return rs;

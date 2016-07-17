@@ -28,7 +28,7 @@ public class Banco {
     }
     
     public static void montarEstrutura(){
-        String[] sqls = new String[6];
+        String[] sqls = new String[8];
         System.out.print("Verificando se é necessário montar as Tabelas...");
         //Tabela Bibliotecas
         sqls[0] = "CREATE TABLE IF NOT EXISTS bibliotecas("
@@ -62,14 +62,21 @@ public class Banco {
                 + "itemAcervo_id INT NOT NULL,"
                 + "dataAluguel TIMESTAMP WITHOUT TIME ZONE,"
                 + "dataDevolucao TIMESTAMP WITHOUT TIME ZONE,"
-                + "pago BOOLEAN NOT NULL,"
-                + "CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES usuarios (id),"
-                + "CONSTRAINT itemAcervo_id FOREIGN KEY (itemAcervo_id) REFERENCES itemAcervos (id)"
+                + "pago BOOLEAN,"
+                + "devolvido BOOLEAN NOT NULL DEFAULT TRUE,"
+                + "CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES usuarios (id) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE,"
+                + "CONSTRAINT itemAcervo_id FOREIGN KEY (itemAcervo_id) REFERENCES itemAcervos (id) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE"
                 + ");";
         sqls[4] = "INSERT INTO bibliotecas (nome) SELECT 'central' WHERE NOT EXISTS ( SELECT id from bibliotecas where nome like 'central')";
         sqls[5] = "INSERT INTO usuarios (bibliotecas_id,nome,senha,endereco,cpf,role) "
                 + " SELECT (SELECT id FROM bibliotecas WHERE nome like 'central'),'admin','senha','user padrao','00000000000','admin' "
                 + "     WHERE NOT EXISTS (SELECT id FROM usuarios WHERE nome like 'admin')";
+        sqls[6] = "CREATE OR REPLACE VIEW itemAcervo_all AS "
+                + "SELECT  i.id, i.bibliotecas_id,a.user_id, i.custo, i.codigoitem, i.especifico,a.dataaluguel, a.datadevolucao, a.pago,a.devolvido,a.id as idalugado "
+                + "FROM itemacervos as i LEFT JOIN alugado as a ON a.id = (SELECT p.id from alugado p where p.itemacervo_id = i.id ORDER BY p.id DESC LIMIT 1) ";
+        sqls[7] = "CREATE OR REPLACE RULE itemacervo_all_UPDATE AS ON UPDATE TO itemacervo_all DO INSTEAD ( "
+                + "UPDATE itemacervos SET bibliotecas_id=NEW.bibliotecas_id, custo=NEW.custo,codigoitem=NEW.codigoitem,especifico=NEW.especifico WHERE id=OLD.id;"
+                + "UPDATE alugado SET dataaluguel=NEW.dataaluguel, datadevolucao=NEW.datadevolucao,pago=NEW.pago,devolvido=NEW.devolvido WHERE id=OLD.idalugado);";
         
         for(String s: sqls){
             try {
