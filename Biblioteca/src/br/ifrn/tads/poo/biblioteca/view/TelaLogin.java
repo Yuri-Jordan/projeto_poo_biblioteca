@@ -53,13 +53,13 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabelUserLogin.setForeground(new java.awt.Color(255, 153, 51));
         jLabelUserLogin.setText("Login :");
         getContentPane().add(jLabelUserLogin);
-        jLabelUserLogin.setBounds(130, 230, 60, 30);
+        jLabelUserLogin.setBounds(110, 230, 100, 30);
 
         jLabelSenha.setFont(jLabelUserLogin.getFont());
         jLabelSenha.setForeground(new java.awt.Color(255, 153, 51));
         jLabelSenha.setText("Senha :");
         getContentPane().add(jLabelSenha);
-        jLabelSenha.setBounds(130, 260, 50, 30);
+        jLabelSenha.setBounds(110, 260, 100, 30);
 
         jLabel1.setFont(jLabelUserLogin.getFont());
         jLabel1.setForeground(jLabelSenha.getForeground());

@@ -59,7 +59,7 @@ public abstract class AbstractModels {
                 Logger.getLogger(AbstractModels.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            System.out.println("Nenhum parametro passado... Esse tipo de query irá apagar todos os dados da tabela... Query bloqueada...");
+            System.out.println("Nenhum parâmetro passado... Esse tipo de query irá apagar todos os dados da tabela... Query bloqueada...");
         }        
     }
     

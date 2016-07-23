@@ -33,15 +33,18 @@ public class RUDcliente extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        jTextField1.setText("jTextField1");
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(180, 50, 190, 30);
+        jTextField1.setBounds(180, 30, 190, 30);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,25 +60,45 @@ public class RUDcliente extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(120, 90, 580, 430);
+        jScrollPane1.setBounds(20, 200, 680, 320);
 
         jButton2.setText("Editar");
         getContentPane().add(jButton2);
-        jButton2.setBounds(10, 90, 90, 40);
+        jButton2.setBounds(10, 40, 90, 40);
 
         jButton1.setText("Pesquisar");
         getContentPane().add(jButton1);
-        jButton1.setBounds(390, 50, 130, 30);
+        jButton1.setBounds(390, 90, 130, 30);
 
         jButton3.setText("Excluir");
         getContentPane().add(jButton3);
-        jButton3.setBounds(10, 140, 90, 40);
+        jButton3.setBounds(10, 90, 90, 40);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(180, 60, 190, 30);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(180, 90, 190, 30);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Situação :");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(120, 170, 80, 17);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Fone :");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(120, 100, 60, 17);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("CPF : ");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(120, 70, 70, 17);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Nome :");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(120, 60, 60, 17);
+        jLabel2.setBounds(120, 40, 60, 17);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/fundoTelaPrincipal.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 730, 550);
@@ -125,8 +148,13 @@ public class RUDcliente extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

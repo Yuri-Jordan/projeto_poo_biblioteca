@@ -86,7 +86,7 @@ public class Banco {
                 System.exit(0);
             }
         }
-        System.out.println("Todas as tabelas foram montada...");
+        System.out.println("Todas as tabelas foram montadas...");
     }
     
     private static void criarBanco(){

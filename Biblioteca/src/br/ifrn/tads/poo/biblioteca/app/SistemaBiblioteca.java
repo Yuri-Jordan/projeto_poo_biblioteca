@@ -10,3 +10,10 @@ public class SistemaBiblioteca {
         painel.setVisible(true);                
     }
 }
+// ############################ CHAT ######################################
+//
+//Ei vamo usar essa classe pra nos comunircarmos, pode ser?
+//
+//EU tentei cadastrar cliente mas n deu certo.  O erro ta na view.CadastrarUsuario.no botão cadastrar.
+//
+// ######################################################################
