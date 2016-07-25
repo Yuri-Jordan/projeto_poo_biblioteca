@@ -43,7 +43,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonLogin);
-        jButtonLogin.setBounds(310, 300, 80, 23);
+        jButtonLogin.setBounds(310, 300, 80, 28);
 
         jLabelIconeTelaLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/iconeLogin.png"))); // NOI18N
         getContentPane().add(jLabelIconeTelaLogin);
@@ -64,6 +64,11 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1.setFont(jLabelUserLogin.getFont());
         jLabel1.setForeground(jLabelSenha.getForeground());
         jLabel1.setText("Criar Conta");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel1);
         jLabel1.setBounds(210, 330, 140, 20);
         getContentPane().add(jPasswordFieldSenha);
@@ -107,6 +112,12 @@ public class TelaLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Login ou Senha inválido.","Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        CadastrarCliente cCliente = new CadastrarCliente();
+        cCliente.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

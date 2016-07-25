@@ -24,4 +24,10 @@ public class AcervoController {
         return dItem.read();
     }
     
+    public void createItem(ItemAcervo item){
+        ItemAcervoDao dItem = new ItemAcervoDao();
+        
+        dItem.create(item);
+    }
+    
 }

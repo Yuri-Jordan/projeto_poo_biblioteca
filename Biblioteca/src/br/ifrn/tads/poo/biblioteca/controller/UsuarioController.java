@@ -8,8 +8,7 @@ import java.util.ArrayList;
  *
  * @author ricardo
  */
-public class UsuarioController {
-    
+public class UsuarioController {           
     //Função de login para o usuario
     public Usuario login(String nome,String senha){
         Usuario user = new Usuario();
@@ -24,5 +23,17 @@ public class UsuarioController {
         }
         
         return null;
+    }
+    
+    public ArrayList<Usuario> findAll(){
+        ArrayList<Usuario> lista;
+        UsuarioDao uDao = new UsuarioDao();
+        lista = uDao.read();        
+        return lista;
+    }
+    
+    public void cadastrar(Usuario usuario){
+        UsuarioDao uDao = new UsuarioDao();
+        uDao.create(usuario);
     }
 }

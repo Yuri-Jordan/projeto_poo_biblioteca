@@ -7,7 +7,9 @@ package br.ifrn.tads.poo.biblioteca.view;
 
 import br.ifrn.tads.poo.biblioteca.usuario.Usuario;
 import br.ifrn.tads.poo.biblioteca.Dao.UsuarioDao;
+import br.ifrn.tads.poo.biblioteca.controller.UsuarioController;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author yuri
@@ -44,8 +46,6 @@ public class CadastrarCliente extends javax.swing.JFrame {
         jButtonCCadastrar = new javax.swing.JButton();
         jTextFieldCId_Biblioteca = new javax.swing.JTextField();
         jPasswordFieldSenha = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldCRole = new javax.swing.JTextField();
         jLabelFundoCadastroC = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(jTextPane1);
@@ -85,14 +85,12 @@ public class CadastrarCliente extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Role : ");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(93, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -102,25 +100,21 @@ public class CadastrarCliente extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(jTextFieldCNome, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(29, 29, 29)
-                        .addComponent(jTextFieldCCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel3))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldCId_Biblioteca, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                                    .addComponent(jPasswordFieldSenha)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jTextFieldCRole, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(77, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jTextFieldCId_Biblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(14, 14, 14)
+                                    .addComponent(jTextFieldCCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(29, 29, 29)
+                                    .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(66, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(280, 280, 280)
                 .addComponent(jButtonCCadastrar)
@@ -149,11 +143,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldCEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldCRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addComponent(jButtonCCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
         );
@@ -170,25 +160,19 @@ public class CadastrarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCCadastrarActionPerformed
-//          Deu um monte de erro quando apertei em cadastrar ricardo!
-//        Usuario cliente = new Usuario();
-//
-//        cliente.setBiblioteca_id( Integer.parseInt(jTextFieldCId_Biblioteca.getText()) );
-//        cliente.setNome(jTextFieldCNome.getText());
-//        cliente.setSenha(jPasswordFieldSenha.getText());
-//        cliente.setEndereco(jTextFieldCEndereco.getText());
-//        cliente.setCpf(jTextFieldCCpf.getText());
-//        cliente.setRole(jTextFieldCRole.getText());
-//        try{
-//                UsuarioDao usuarioDao = new UsuarioDao();
-//                usuarioDao.create(cliente);
-//                JOptionPane jPane = new JOptionPane();
-//                jPane("Usuário cadastrado! ");
-//        }catch(Exception e){
-//                jPane("Usuário não cadastrado! ");
-//        }
-//
-          dispose();
+        UsuarioController uController = new UsuarioController();
+        
+        //Cadastrando um usuario
+        Usuario cliente = new Usuario();
+        cliente.setBiblioteca_id(1);    //Biblioteca padrão é 1
+        cliente.setNome(jTextFieldCNome.getText());
+        cliente.setSenha(jPasswordFieldSenha.getText());
+        cliente.setEndereco(jTextFieldCEndereco.getText());
+        cliente.setCpf(jTextFieldCCpf.getText());        
+        
+        uController.cadastrar(cliente);        
+        
+        dispose();
     }//GEN-LAST:event_jButtonCCadastrarActionPerformed
 
     private void jTextFieldCEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCEnderecoActionPerformed
@@ -238,7 +222,6 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCCadastrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
@@ -250,7 +233,6 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCEndereco;
     private javax.swing.JTextField jTextFieldCId_Biblioteca;
     private javax.swing.JTextField jTextFieldCNome;
-    private javax.swing.JTextField jTextFieldCRole;
     private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 

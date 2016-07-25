@@ -5,16 +5,27 @@
  */
 package br.ifrn.tads.poo.biblioteca.view;
 
+import br.ifrn.tads.poo.biblioteca.controller.UsuarioController;
+import br.ifrn.tads.poo.biblioteca.usuario.Usuario;
+import java.util.ArrayList;
+
 /**
  *
  * @author yuri
  */
 public class RUDcliente extends javax.swing.JFrame {
-
+    
+    private ArrayList<Usuario> usuarios;
+    
     /**
      * Creates new form RUDcliente
      */
     public RUDcliente() {
+        UsuarioController uController = new UsuarioController();
+        usuarios = uController.findAll();
+        //for(Usuario u : usuarios){
+        //    System.out.println(u.getNome());
+        //}        
         initComponents();
     }
 
