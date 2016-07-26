@@ -20,7 +20,7 @@ public class AcervoController {
     }
     
     //Retorna uma lista com todos os itens    
-    public ArrayList<ItemAcervo> homeAcervo(){
+    public ArrayList<ItemAcervo> findAll(){
         return dItem.read();
     }
     

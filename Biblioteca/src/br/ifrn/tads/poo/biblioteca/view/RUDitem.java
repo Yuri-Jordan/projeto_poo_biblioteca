@@ -5,16 +5,47 @@
  */
 package br.ifrn.tads.poo.biblioteca.view;
 
+import br.ifrn.tads.poo.biblioteca.acervo.Apostila;
+import br.ifrn.tads.poo.biblioteca.acervo.ItemAcervo;
+import br.ifrn.tads.poo.biblioteca.acervo.Livro;
+import br.ifrn.tads.poo.biblioteca.acervo.Texto;
+import br.ifrn.tads.poo.biblioteca.controller.AcervoController;
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author yuri
  */
 public class RUDitem extends javax.swing.JFrame {
+    private Object[][] obj;
 
     /**
      * Creates new form RUDitem
      */
     public RUDitem() {
+        AcervoController aController = new AcervoController();
+        
+        //Codigo para gerar o conteudo da tabela dinamicamente
+        Date date = new Date(); //Uso para saber se o item pode ser alugado
+        ArrayList<ItemAcervo> itens = aController.findAll();
+        obj = new Object[itens.size()][5];        
+        for(int i=0;i<obj.length;i++){
+            if(itens.get(i) instanceof Livro){ //é um livro?
+                obj[i][0] = "Livro";
+                obj[i][2] = ((Livro)itens.get(i)).getTitulo();
+            } else if(itens.get(i) instanceof Apostila){ //é uma apostila?            
+                obj[i][0] = "Apostila";
+                obj[i][2] = ((Apostila)itens.get(i)).getTitulo();
+            } else { // ou é um simples texto?
+                obj[i][0] = "Texto";
+                obj[i][2] = ((Texto)itens.get(i)).getAutor();
+            }
+            obj[i][1] = itens.get(i).getCodigoItem();            
+            obj[i][3] = itens.get(i).getCusto();
+            //Verifica se a data é nula o se já esta alugado. Caso possa esta alugado coloca sim caso contrario não
+            obj[i][4] = itens.get(i).getDataAluguel() != null && date.compareTo(itens.get(i).getDataAluguel()) < 0 ? "Sim" : "Não";            
+        }
         initComponents();
     }
 
@@ -42,8 +73,6 @@ public class RUDitem extends javax.swing.JFrame {
         jButton1.setText("Pesquisar");
         getContentPane().add(jButton1);
         jButton1.setBounds(400, 50, 130, 30);
-
-        jTextField1.setText("jTextField1");
         getContentPane().add(jTextField1);
         jTextField1.setBounds(190, 50, 190, 30);
 
@@ -52,14 +81,9 @@ public class RUDitem extends javax.swing.JFrame {
         jButton3.setBounds(10, 140, 90, 40);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
+            this.obj,
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Tipo", "Codigo", "Titulo/Autor", "Custo","Pode Alugar?"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

@@ -8,6 +8,9 @@ package br.ifrn.tads.poo.biblioteca.view;
 import br.ifrn.tads.poo.biblioteca.controller.UsuarioController;
 import br.ifrn.tads.poo.biblioteca.usuario.Usuario;
 import java.util.ArrayList;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -16,17 +19,46 @@ import java.util.ArrayList;
 public class RUDcliente extends javax.swing.JFrame {
     
     private ArrayList<Usuario> usuarios;
+    private Object[][] obj;
     
     /**
      * Creates new form RUDcliente
      */
-    public RUDcliente() {
+    public RUDcliente() {        
         UsuarioController uController = new UsuarioController();
         usuarios = uController.findAll();
-        //for(Usuario u : usuarios){
-        //    System.out.println(u.getNome());
-        //}        
+        //Aqui definimos o array de objects que será usado para gerar a tabela de forma dinamica
+        this.obj = new Object[usuarios.size()][4];        
+        for(int i=0;i<obj.length;i++){
+            obj[i][0] = usuarios.get(i).getNome();
+            obj[i][1] = usuarios.get(i).getEndereco();
+            obj[i][2] = usuarios.get(i).getCpf();
+            obj[i][3] = usuarios.get(i).getRole();
+        }       
+        
+        //Importante que seja antes do init, pois é aqui que os elementos são colocados no jframe
         initComponents();
+        
+        //Adiciona um event listener para a tabela
+        //Aqui seria um exemplo de listener. Não achei muito usual
+//        ListSelectionModel cellSelectionModel = jTable1.getSelectionModel();
+//        cellSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+//        
+//          cellSelectionModel.addListSelectionListener(new ListSelectionListener() {
+//            public void valueChanged(ListSelectionEvent e) {
+//                String selectedData = null;
+//
+//                int[] selectedRow = jTable1.getSelectedRows();
+//                int[] selectedColumns = jTable1.getSelectedColumns();
+//                
+//                for (int i = 0; i < selectedRow.length; i++) {
+//                for (int j = 0; j < selectedColumns.length; j++) {
+//                  selectedData = (String) jTable1.getValueAt(selectedRow[i], selectedColumns[j]);
+//                }
+//              }
+//              System.out.println("Selected: " + selectedData);
+//            }
+//          });
     }
 
     /**
@@ -58,16 +90,13 @@ public class RUDcliente extends javax.swing.JFrame {
         jTextField1.setBounds(180, 30, 190, 30);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
+            this.obj,
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome", "Endereço", "CPF", "Perfil"
             }
         ));
+        jTable1.setCellSelectionEnabled(true);
+        jTable1.setName(""); // NOI18N
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
