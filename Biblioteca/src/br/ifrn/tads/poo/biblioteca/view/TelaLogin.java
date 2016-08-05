@@ -105,7 +105,9 @@ public class TelaLogin extends javax.swing.JFrame {
                 telaPrincipal.setVisible(true);
                 dispose();
             } else if(user instanceof Usuario) { //Padrão?
-            
+                TelaPrincipalPadrao telaPadrao = new TelaPrincipalPadrao();
+                telaPadrao.setVisible(true);
+                dispose();
             }
                         
         }else{
