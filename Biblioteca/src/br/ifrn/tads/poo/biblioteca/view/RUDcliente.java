@@ -20,7 +20,8 @@ public class RUDcliente extends javax.swing.JFrame {
     
     private ArrayList<Usuario> usuarios;
     private Object[][] obj;
-    
+    private static String selectedData = null;
+    private static int number = -1;
     /**
      * Creates new form RUDcliente
      */
@@ -41,24 +42,14 @@ public class RUDcliente extends javax.swing.JFrame {
         
         //Adiciona um event listener para a tabela
         //Aqui seria um exemplo de listener. Não achei muito usual
-//        ListSelectionModel cellSelectionModel = jTable1.getSelectionModel();
-//        cellSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//        
-//          cellSelectionModel.addListSelectionListener(new ListSelectionListener() {
-//            public void valueChanged(ListSelectionEvent e) {
-//                String selectedData = null;
-//
-//                int[] selectedRow = jTable1.getSelectedRows();
-//                int[] selectedColumns = jTable1.getSelectedColumns();
-//                
-//                for (int i = 0; i < selectedRow.length; i++) {
-//                for (int j = 0; j < selectedColumns.length; j++) {
-//                  selectedData = (String) jTable1.getValueAt(selectedRow[i], selectedColumns[j]);
-//                }
-//              }
-//              System.out.println("Selected: " + selectedData);
-//            }
-//          });
+        ListSelectionModel cellSelectionModel = jTable1.getSelectionModel();
+        cellSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+          cellSelectionModel.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {                
+                number = jTable1.getSelectedRow();       
+            }
+          });
     }
 
     /**
@@ -97,6 +88,11 @@ public class RUDcliente extends javax.swing.JFrame {
         ));
         jTable1.setCellSelectionEnabled(true);
         jTable1.setName(""); // NOI18N
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
@@ -146,6 +142,10 @@ public class RUDcliente extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(736, 573));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        System.out.println(usuarios.get(number).getNome());
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
