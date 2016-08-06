@@ -177,8 +177,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Sai do atual usuário pelo sub menu trocar usuário, contido no menu SAIR.
     private void jMenuItemLogOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLogOffActionPerformed
        TelaLogin telaLogin = new TelaLogin();
-        telaLogin.setVisible(true);
-        dispose();
+       telaLogin.setVisible(true);
+       dispose();
     }//GEN-LAST:event_jMenuItemLogOffActionPerformed
     // Fecha programa pelo sub menu fechar do menu SAIR.
     private void jMenuItemFecharProgramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFecharProgramaActionPerformed

@@ -19,9 +19,8 @@ import javax.swing.event.ListSelectionListener;
 public class RUDcliente extends javax.swing.JFrame {
     
     private ArrayList<Usuario> usuarios;
-    private Object[][] obj;
-    private static String selectedData = null;
-    private static int number = -1;
+    private Object[][] obj;  
+    private int number = -1;
     /**
      * Creates new form RUDcliente
      */
@@ -61,24 +60,13 @@ public class RUDcliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(180, 30, 190, 30);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             this.obj,
@@ -98,41 +86,10 @@ public class RUDcliente extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(20, 200, 680, 320);
 
-        jButton2.setText("Editar");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(10, 40, 90, 40);
-
-        jButton1.setText("Pesquisar");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(390, 90, 130, 30);
-
-        jButton3.setText("Excluir");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(10, 90, 90, 40);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(180, 60, 190, 30);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(180, 90, 190, 30);
-
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Situação :");
+        jLabel5.setText("Clique no usuario que deseja realizar alguma alteração");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(120, 170, 80, 17);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Fone :");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(120, 100, 60, 17);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("CPF : ");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(120, 70, 70, 17);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Nome :");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(120, 40, 60, 17);
+        jLabel5.setBounds(180, 170, 380, 17);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/fundoTelaPrincipal.png"))); // NOI18N
@@ -144,7 +101,8 @@ public class RUDcliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        System.out.println(usuarios.get(number).getNome());
+        EditarUser editar = new EditarUser(usuarios.get(number));
+        editar.setVisible(true);        
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
@@ -183,18 +141,9 @@ public class RUDcliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
