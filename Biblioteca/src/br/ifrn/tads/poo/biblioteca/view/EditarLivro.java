@@ -231,7 +231,7 @@ public class EditarLivro extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Status e Locação do Item", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
         jPanel4.setLayout(null);
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/pay.png"))); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -250,7 +250,7 @@ public class EditarLivro extends javax.swing.JFrame {
         jPanel4.add(jLabel10);
         jLabel10.setBounds(40, 30, 180, 16);
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png"))); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png")));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -258,6 +258,12 @@ public class EditarLivro extends javax.swing.JFrame {
         });
         jPanel4.add(jButton8);
         jButton8.setBounds(20, 60, 220, 170);
+        if(item.isDevolvido() || item.getDataDevolucao() == null){
+            jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/livro-green.png")));
+        } else {
+            jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/livro-red.png")));
+        }
+
         if(jButton6.isVisible())
         jButton8.setEnabled(false);
 

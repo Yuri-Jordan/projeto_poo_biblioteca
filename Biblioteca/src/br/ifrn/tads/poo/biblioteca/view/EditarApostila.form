@@ -260,7 +260,7 @@
         <Component class="javax.swing.JButton" name="jButton6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png"/>
+              <Image iconType="3" name="/br/ifrn/tads/poo/biblioteca/imagens/pay.png"/>
             </Property>
           </Properties>
           <Events>
@@ -295,7 +295,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="if(jButton6.isVisible())&#xa;    jButton8.setEnabled(false);"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="if(item.isDevolvido() || item.getDataDevolucao() == null){&#xa;   jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/br/ifrn/tads/poo/biblioteca/imagens/livro-green.png&quot;)));&#xa;} else {&#xa;    jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/br/ifrn/tads/poo/biblioteca/imagens/livro-red.png&quot;)));&#xa;}&#xa;&#xa;if(jButton6.isVisible())&#xa;    jButton8.setEnabled(false);"/>
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
