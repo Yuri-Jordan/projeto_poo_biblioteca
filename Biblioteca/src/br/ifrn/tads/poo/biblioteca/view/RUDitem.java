@@ -117,11 +117,17 @@ public class RUDitem extends javax.swing.JFrame {
             EditarLivro eLivro = new EditarLivro(itens.get(number));
             eLivro.setVisible(true);
             
-            } else if(itens.get(number) instanceof Apostila){ //é uma apostila?            
-
-            } else { // ou é um simples texto?
-                
-            }
+        } else if(itens.get(number) instanceof Apostila){ //é uma apostila?            
+            
+            EditarApostila eApostila = new EditarApostila(itens.get(number));
+            eApostila.setVisible(true);
+            
+        } else { // ou é um simples texto?
+            
+            EditarTexto eTexto = new EditarTexto(itens.get(number));
+            eTexto.setVisible(true);
+            
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**

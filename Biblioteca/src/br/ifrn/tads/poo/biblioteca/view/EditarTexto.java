@@ -6,7 +6,7 @@
 package br.ifrn.tads.poo.biblioteca.view;
 
 import br.ifrn.tads.poo.biblioteca.acervo.ItemAcervo;
-import br.ifrn.tads.poo.biblioteca.acervo.Livro;
+import br.ifrn.tads.poo.biblioteca.acervo.Texto;
 import br.ifrn.tads.poo.biblioteca.controller.AcervoController;
 import br.ifrn.tads.poo.biblioteca.controller.UsuarioController;
 import br.ifrn.tads.poo.biblioteca.usuario.Usuario;
@@ -21,9 +21,9 @@ import java.util.logging.Logger;
  *
  * @author yuri
  */
-public class EditarLivro extends javax.swing.JFrame {
+public class EditarTexto extends javax.swing.JFrame {
     
-    private Livro item;
+    private Texto item;
     private AcervoController aController;
     private UsuarioController uController;
     private String[] userComponent;
@@ -35,9 +35,9 @@ public class EditarLivro extends javax.swing.JFrame {
     /**
      * Creates new form TelaPrincipal
      */
-    public EditarLivro(ItemAcervo item) {
+    public EditarTexto(ItemAcervo item) {
         //Recebe o usuario que deseja editar
-        this.item = (Livro)item;
+        this.item = (Texto)item;
         //Controllers
         aController = new AcervoController();
         uController = new UsuarioController();
@@ -68,19 +68,13 @@ public class EditarLivro extends javax.swing.JFrame {
 
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jTextFieldCusto = new javax.swing.JTextField();
-        jTextFieldTitulo = new javax.swing.JTextField();
         jTextFieldAutor = new javax.swing.JTextField();
-        jTextFieldIsbn = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextFieldEdicao = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jTextFieldCodigo = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -110,21 +104,9 @@ public class EditarLivro extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Editar Informações", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
         jPanel2.setLayout(null);
 
-        jLabel1.setText("Edição");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(20, 160, 70, 16);
-
-        jLabel2.setText("Titulo");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(20, 40, 70, 16);
-
         jLabel3.setText("Autor");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(20, 80, 70, 16);
-
-        jLabel4.setText("ISBN");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(20, 120, 70, 16);
+        jLabel3.setBounds(20, 50, 70, 16);
 
         jTextFieldCusto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,17 +114,8 @@ public class EditarLivro extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldCusto);
-        jTextFieldCusto.setBounds(130, 250, 310, 28);
+        jTextFieldCusto.setBounds(130, 140, 310, 28);
         jTextFieldCusto.setText(String.valueOf(item.getCusto()));
-
-        jTextFieldTitulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTituloActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextFieldTitulo);
-        jTextFieldTitulo.setBounds(130, 40, 310, 28);
-        jTextFieldTitulo.setText(item.getTitulo());
 
         jTextFieldAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,17 +123,8 @@ public class EditarLivro extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldAutor);
-        jTextFieldAutor.setBounds(130, 80, 310, 28);
+        jTextFieldAutor.setBounds(130, 50, 310, 28);
         jTextFieldAutor.setText(item.getAutor());
-
-        jTextFieldIsbn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldIsbnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextFieldIsbn);
-        jTextFieldIsbn.setBounds(130, 120, 310, 28);
-        jTextFieldIsbn.setText(item.getIsbn());
 
         jButton1.setText("Enviar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -169,32 +133,23 @@ public class EditarLivro extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(20, 300, 90, 28);
+        jButton1.setBounds(10, 220, 90, 28);
 
         jLabel6.setText("Outra coisa, sempre que apertar Enviar ou o botao deletar, deve aparecer aquela menssagem ");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(130, 280, 610, 30);
+        jLabel6.setBounds(130, 220, 610, 30);
 
         jLabel7.setText("de confirmação e quando  for clicado 'ok' deve fechar a janela. Veja isso por favor");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(130, 310, 600, 16);
+        jLabel7.setBounds(130, 260, 600, 16);
 
         jLabel8.setText("Custo");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(20, 250, 80, 16);
-
-        jTextFieldEdicao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEdicaoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextFieldEdicao);
-        jTextFieldEdicao.setBounds(130, 160, 310, 28);
-        jTextFieldEdicao.setText(Integer.toString(item.getEdicao()));
+        jLabel8.setBounds(10, 140, 80, 16);
 
         jLabel9.setText("Codigo");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(20, 210, 70, 16);
+        jLabel9.setBounds(10, 90, 70, 16);
 
         jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,7 +157,7 @@ public class EditarLivro extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldCodigo);
-        jTextFieldCodigo.setBounds(130, 210, 310, 28);
+        jTextFieldCodigo.setBounds(130, 90, 310, 28);
         jTextFieldCodigo.setText(Integer.toString(item.getCodigoItem()));
 
         getContentPane().add(jPanel2);
@@ -341,24 +296,13 @@ public class EditarLivro extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jTextFieldCustoActionPerformed
 
-    private void jTextFieldTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTituloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTituloActionPerformed
-
     private void jTextFieldAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAutorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAutorActionPerformed
 
-    private void jTextFieldIsbnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIsbnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIsbnActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Atualiza os dados com as novas informações
-        item.setTitulo(jTextFieldTitulo.getText());
+        //Atualiza os dados com as novas informações        
         item.setAutor(jTextFieldAutor.getText());
-        item.setIsbn(jTextFieldIsbn.getText());
-        item.setEdicao(Integer.parseInt(jTextFieldEdicao.getText()));
         item.setCodigoItem(Integer.parseInt(jTextFieldCodigo.getText()));
         item.setCusto(Double.parseDouble(jTextFieldCusto.getText()));
         aController.editar(item);   //Manda o item editado pro banco
@@ -368,10 +312,6 @@ public class EditarLivro extends javax.swing.JFrame {
         //Deletando item
         aController.delete(item);
     }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jTextFieldEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEdicaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEdicaoActionPerformed
 
     private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
         // TODO add your handling code here:
@@ -388,7 +328,7 @@ public class EditarLivro extends javax.swing.JFrame {
             item.setPago(false);
             aController.alugarDevolver(item);
             } catch (ParseException ex) {   //Yuri, aqui vc deve manda uma pop-up dizendo que a data esta em formato invalido. Aqui é tratamento de formato de data
-                Logger.getLogger(EditarLivro.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(EditarTexto.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {    //Ou o item esta sendo devolvido agora?
             item.setDevolvido(true);
@@ -418,14 +358,26 @@ public class EditarLivro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarTexto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarTexto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarTexto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarTexto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -441,16 +393,13 @@ public class EditarLivro extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JFormattedTextField jFormattedTextFieldDInicio;
     private javax.swing.JFormattedTextField jFormattedTextFieldDfim;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -466,8 +415,5 @@ public class EditarLivro extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAutor;
     private javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTextField jTextFieldCusto;
-    private javax.swing.JTextField jTextFieldEdicao;
-    private javax.swing.JTextField jTextFieldIsbn;
-    private javax.swing.JTextField jTextFieldTitulo;
     // End of variables declaration//GEN-END:variables
 }
