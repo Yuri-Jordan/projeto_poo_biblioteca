@@ -52,6 +52,12 @@ public class ItemAcervoDao extends AbstractModels{
         super.update(itemAcervo.getId(), itemAcervo.toStringUpdate());
     }
     
+    public void alugarDevolver(ItemAcervo itemAcervo){
+        table = "alugado";            
+        super.create(itemAcervo.toStringCreateAlugado());
+        table = "itemAcervo_all";
+    }
+    
     //Preenche nosso array de itens do acervo com os diversos itens (livro,apostila e texto)    
     private void popularLista(ResultSet rs){
         JSONObject json = new JSONObject();  //objeto json em java

@@ -72,11 +72,11 @@ public class Banco {
                 + " SELECT (SELECT id FROM bibliotecas WHERE nome like 'central'),'admin','senha','user padrao','00000000000','admin' "
                 + "     WHERE NOT EXISTS (SELECT id FROM usuarios WHERE nome like 'admin')";
         sqls[6] = "CREATE OR REPLACE VIEW itemAcervo_all AS "
-                + "SELECT  i.id, i.bibliotecas_id,a.user_id, i.custo, i.codigoitem, i.especifico,a.dataaluguel, a.datadevolucao, a.pago,a.devolvido,a.id as idalugado "
+                + "SELECT  i.id, i.bibliotecas_id,a.user_id, i.custo, i.codigoitem, i.especifico,a.dataaluguel, a.datadevolucao, a.pago,a.devolvido,a.id as idalugado,a.itemacervo_id "
                 + "FROM itemacervos as i LEFT JOIN alugado as a ON a.id = (SELECT p.id from alugado p where p.itemacervo_id = i.id ORDER BY p.id DESC LIMIT 1) ";
         sqls[7] = "CREATE OR REPLACE RULE itemacervo_all_UPDATE AS ON UPDATE TO itemacervo_all DO INSTEAD ( "
                 + "UPDATE itemacervos SET bibliotecas_id=NEW.bibliotecas_id, custo=NEW.custo,codigoitem=NEW.codigoitem,especifico=NEW.especifico WHERE id=OLD.id;"
-                + "UPDATE alugado SET dataaluguel=NEW.dataaluguel, datadevolucao=NEW.datadevolucao,pago=NEW.pago,devolvido=NEW.devolvido WHERE id=OLD.idalugado);";
+                + "UPDATE alugado SET dataaluguel=NEW.dataaluguel, datadevolucao=NEW.datadevolucao,pago=NEW.pago,devolvido=NEW.devolvido,user_id=NEW.user_id,itemacervo_id=NEW.itemacervo_id WHERE id=OLD.idalugado);";
         
         for(String s: sqls){
             try {

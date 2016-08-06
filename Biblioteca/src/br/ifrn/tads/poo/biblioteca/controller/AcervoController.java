@@ -9,13 +9,9 @@ import java.util.ArrayList;
  * @author ricardo
  */
 public class AcervoController {
-    private ItemAcervo item;
-    private ArrayList<ItemAcervo> itens;
     private ItemAcervoDao dItem;
 
-    public AcervoController() {
-        item = new ItemAcervo();
-        itens = new ArrayList<>();
+    public AcervoController() {        
         dItem = new ItemAcervoDao();
     }
     
@@ -24,10 +20,23 @@ public class AcervoController {
         return dItem.read();
     }
     
-    public void createItem(ItemAcervo item){
-        ItemAcervoDao dItem = new ItemAcervoDao();
-        
+    //Cria um item
+    public void createItem(ItemAcervo item){                
         dItem.create(item);
     }
     
+    //Atualiza o item
+    public void editar(ItemAcervo item){
+        dItem.update(item);
+    }
+    
+    //Alugar/Devolver item
+    public void alugarDevolver(ItemAcervo item){
+        dItem.alugarDevolver(item);
+    }
+    
+    //Deleta o item
+    public void delete(ItemAcervo item){
+        dItem.delete(item);
+    }
 }

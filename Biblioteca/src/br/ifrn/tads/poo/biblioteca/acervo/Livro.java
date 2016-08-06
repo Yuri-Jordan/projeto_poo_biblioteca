@@ -9,6 +9,10 @@ public class Livro extends ItemAcervo{
     
     public String toStringUpdate(){
         StringBuilder s = new StringBuilder();
+        if(id!=0)
+            s.append(" itemacervo_id=").append(id).append(", ");
+        if(userId!=0)
+            s.append(" user_id=").append(userId).append(", ");
         if(custo!=0)
             s.append(" custo=").append(custo).append(", ");
         if(codigoItem!=0)
@@ -21,7 +25,9 @@ public class Livro extends ItemAcervo{
         s.append(" devolvido=").append(devolvido).append(", ");
         if(titulo!=null && autor!=null){
             s.append(" especifico='{\"livro\": { \"titulo\":").append("\"").append(titulo).append("\" , ")
-             .append(" \"autor\":\"").append(autor).append("\"")
+             .append(" \"autor\":\"").append(autor).append("\" , ")
+             .append(" \"isbn\":\"").append(isbn).append("\" , ")
+             .append(" \"edicao\":\"").append(edicao).append("\"")
              .append("}}' ");            
         }
         return s.toString();

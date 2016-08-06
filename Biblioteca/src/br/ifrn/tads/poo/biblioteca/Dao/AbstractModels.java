@@ -15,10 +15,12 @@ public abstract class AbstractModels {
      * Realiza um select no banco de dados     
      * @return ResultSet rs Retorna um objeto do tipo result set que contem as row da consulta especificada
      */
-    protected Object read(){           
+    protected Object read(){
+        System.out.println("SELECT * FROM "+table);
         ResultSet rs;
         try {
             rs = Banco.getStmt().executeQuery("SELECT * FROM "+table);
+            System.out.println("Row lida com sucesso no banco...");
             return rs;
         } catch (SQLException ex) {
             Logger.getLogger(AbstractModels.class.getName()).log(Level.SEVERE, null, ex);
@@ -36,9 +38,11 @@ public abstract class AbstractModels {
         String SQL = "SELECT * FROM "+table+" "+options;        
         if(SQL.trim().endsWith("AND")){
             SQL = SQL.substring(0, SQL.length()-4);
-        }        
+        }
+        System.out.println(SQL);
         try {
             rs = Banco.getStmt().executeQuery(SQL);
+            System.out.println("Row lida com sucesso no banco...");
             return rs;
         } catch (SQLException ex) {
             Logger.getLogger(AbstractModels.class.getName()).log(Level.SEVERE, null, ex);
@@ -53,8 +57,10 @@ public abstract class AbstractModels {
     protected void delete(int id){        
         if(id>0){
             String SQL = "DELETE FROM "+table+" WHERE id="+id;
+            System.out.println(SQL);
             try {
                 Banco.getStmt().executeUpdate(SQL);
+                System.out.println("Row deletada com sucesso no banco...");
             } catch (SQLException ex) {
                 Logger.getLogger(AbstractModels.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -68,7 +74,7 @@ public abstract class AbstractModels {
      * @param values Recebe uma string contendo o valor a ser inserido na query. OBS, strings sql devem ser colocadas entre '' ex:" 'teste' ".
      */
     protected void create(String values){        
-        
+        System.out.println("INSERT INTO "+table+" VALUES(default,"+values+")");
         try {
             Banco.getStmt().executeUpdate("INSERT INTO "+table+" VALUES(default,"+values+")");
             System.out.println("Row criada com sucesso no banco...");
@@ -83,8 +89,10 @@ public abstract class AbstractModels {
      * @param updates Uma string no formato aceito pelos update sql. Usa os metodos .toStringUpdate()
      */
     protected void update(int id,String updates){
+        System.out.println("UPDATE "+table+" SET "+updates+" WHERE id="+id);
         try {            
             Banco.getStmt().executeUpdate("UPDATE "+table+" SET "+updates+" WHERE id="+id);
+            System.out.println("Row alterada com sucesso no banco...");
         } catch (SQLException ex) {
             Logger.getLogger(AbstractModels.class.getName()).log(Level.SEVERE, null, ex);
         }

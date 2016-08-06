@@ -20,25 +20,20 @@ public class ItemAcervo {
     public String toStringSelect(){return "";}
     
     public ItemAcervo() {
-        this.pago = false;
+        this.pago = true;
+        this.devolvido = true;
     }
             
-    public void alugar(){
-    
-    }
-    
-    public double devolver(){
+    public String toStringCreateAlugado(){
+        StringBuilder s = new StringBuilder();
+        s.append(" ").append(userId).append(", ");        
+        s.append(" ").append(id).append(", ");
+        s.append(" '").append(dataAluguel).append("', ");
+        s.append(" '").append(dataDevolucao).append("', ");
+        s.append(" ").append(pago).append(", ");
+        s.append(" ").append(devolvido).append(" ");
         
-        return 0.0;
-    }
-    
-    public boolean estaPago(){
-    
-        return false;
-    }
-    
-    public void reservar(){
-    
+        return s.toString();
     }
 
     public int getId() {
