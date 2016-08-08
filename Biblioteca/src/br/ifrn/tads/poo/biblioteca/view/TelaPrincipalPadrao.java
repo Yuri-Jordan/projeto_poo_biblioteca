@@ -58,7 +58,7 @@ public class TelaPrincipalPadrao extends javax.swing.JFrame {
 
         jLabelFundoTelaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/fundoTelaPrincipal.png"))); // NOI18N
         getContentPane().add(jLabelFundoTelaPrincipal);
-        jLabelFundoTelaPrincipal.setBounds(0, 0, 800, 450);
+        jLabelFundoTelaPrincipal.setBounds(0, 0, 800, 370);
 
         jMenuBarTelaPrincipal.setBackground(new java.awt.Color(0, 102, 102));
         jMenuBarTelaPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -86,7 +86,7 @@ public class TelaPrincipalPadrao extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBarTelaPrincipal);
 
-        setSize(new java.awt.Dimension(816, 639));
+        setSize(new java.awt.Dimension(816, 433));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     // Sai do atual usuário pelo sub menu trocar usuário, contido no menu SAIR.

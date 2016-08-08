@@ -58,8 +58,6 @@ public class RUDitemPadrao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -67,12 +65,6 @@ public class RUDitemPadrao extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        jButton1.setText("Pesquisar");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(400, 50, 130, 30);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(190, 50, 190, 30);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             this.obj,
@@ -86,9 +78,9 @@ public class RUDitemPadrao extends javax.swing.JFrame {
         jScrollPane1.setBounds(120, 90, 600, 430);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Título :");
+        jLabel2.setText("Veja os Itens do Acervo disponíveis");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(120, 60, 60, 17);
+        jLabel2.setBounds(260, 60, 430, 17);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/fundoTelaPrincipal.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -135,11 +127,9 @@ public class RUDitemPadrao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

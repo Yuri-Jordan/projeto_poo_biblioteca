@@ -370,18 +370,24 @@ public class CadastrarItem extends javax.swing.JFrame {
                 livro.setTitulo(jTextFieldLivroTitulo.getText());
                 livro.setAutor(jTextFieldLivroAutor.getText());
                 livro.setIsbn(jTextFieldLivroISBN.getText());
-                livro.setEdicao(Integer.parseInt(jTextFieldLivroEdicao.getText()));
-                livro.setCodigoItem(Integer.parseInt(jTextFieldLivroCodigo.getText()));
-                livro.setCusto(Double.parseDouble(jTextFieldLivroCusto.getText()));
+                
+                try{
+               		livro.setEdicao(Integer.parseInt(jTextFieldLivroEdicao.getText()));
+               	 	livro.setCodigoItem(Integer.parseInt(jTextFieldLivroCodigo.getText()));
+                	livro.setCusto(Double.parseDouble(jTextFieldLivroCusto.getText()));
 
-                cAcervo.createItem(livro);
-                // limpas os campos após cadastrar
-                jTextFieldLivroTitulo.setText("");
-                jTextFieldLivroAutor.setText("");
-                jTextFieldLivroISBN.setText("");
-                jTextFieldLivroEdicao.setText("");
-                jTextFieldLivroCodigo.setText("");
-                jTextFieldLivroCusto.setText("");
+			cAcervo.createItem(livro);
+
+			// limpas os campos após cadastrar
+                	jTextFieldLivroTitulo.setText("");
+                	jTextFieldLivroAutor.setText("");
+                	jTextFieldLivroISBN.setText("");
+                	jTextFieldLivroEdicao.setText("");
+                	jTextFieldLivroCodigo.setText("");
+                	jTextFieldLivroCusto.setText("");
+		}catch(Exception ex){
+			JOptionPane.showMessageDialog(null, "Por favor preencha os campos \"Edição\",  \"Código\" e  \"Custo\" com valores numéricos .","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+		}
         }else{
             JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos.","Atenção!",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -399,16 +405,21 @@ public class CadastrarItem extends javax.swing.JFrame {
             Apostila apostila = new Apostila();
             apostila.setBibliotecaId(1);
             apostila.setTitulo(jTextFieldAposTitulo.getText());
-            apostila.setAutor(jTextFieldAposAutor.getText());        
-            apostila.setCusto(Double.parseDouble(jTextFieldAposCusto.getText()));
-            apostila.setCodigoItem(Integer.parseInt(jTextFieldAposCodigo.getText()));
+            apostila.setAutor(jTextFieldAposAutor.getText());  
+            
+            try{       
+           	 apostila.setCusto(Double.parseDouble(jTextFieldAposCusto.getText()));
+            	 apostila.setCodigoItem(Integer.parseInt(jTextFieldAposCodigo.getText()));
 
-            cAcervo.createItem(apostila);
-
-            jTextFieldAposTitulo.setText("");
-            jTextFieldAposAutor.setText("");        
-            jTextFieldAposCusto.setText("");
-            jTextFieldAposCodigo.setText("");
+            	 cAcervo.createItem(apostila);
+		// limpa os campos
+		 jTextFieldAposTitulo.setText("");
+           	 jTextFieldAposAutor.setText("");        
+            	 jTextFieldAposCusto.setText("");
+            	 jTextFieldAposCodigo.setText("");
+	    }catch(Exception ex){
+			JOptionPane.showMessageDialog(null, "Por favor preencha os campos \"Código\" e  \"Custo\" com valores numéricos .","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+	    }
         }else{
             JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos.","Atenção!",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -424,15 +435,20 @@ public class CadastrarItem extends javax.swing.JFrame {
         {   
             Texto texto = new Texto();
             texto.setBibliotecaId(1);
-            texto.setAutor(jTextFieldTextoAutor.getText());
-            texto.setCodigoItem(Integer.parseInt(jTextFieldTextoCod.getText()));
-            texto.setCusto(Double.parseDouble(jTextFieldTextoCusto.getText()));
-        
-            cAcervo.createItem(texto);
+            texto.setAutor(jTextFieldTextoAutor.getText());    
+            
+            try{
+            		texto.setCodigoItem(Integer.parseInt(jTextFieldTextoCod.getText()));
+            		texto.setCusto(Double.parseDouble(jTextFieldTextoCusto.getText()));
 
-            jTextFieldTextoAutor.setText("");
-            jTextFieldTextoCod.setText("");
-            jTextFieldTextoCusto.setText("");
+			cAcervo.createItem(texto);
+
+            		jTextFieldTextoAutor.setText("");
+            		jTextFieldTextoCod.setText("");
+            		jTextFieldTextoCusto.setText("");
+        	}catch(Exception ex){
+			JOptionPane.showMessageDialog(null, "Por favor preencha os campos \"Código\" e  \"Custo\" com valores numéricos .","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+	    }
         }else{
             JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos.","Atenção!",JOptionPane.INFORMATION_MESSAGE);
         }

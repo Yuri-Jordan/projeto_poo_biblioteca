@@ -62,7 +62,6 @@ public class RUDcliente extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButtonAtualizarCliente = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -87,15 +86,6 @@ public class RUDcliente extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(20, 240, 680, 280);
 
-        jButtonAtualizarCliente.setText("Atualizar");
-        jButtonAtualizarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAtualizarClienteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonAtualizarCliente);
-        jButtonAtualizarCliente.setBounds(603, 203, 90, 30);
-
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Clique no usuario que deseja realizar alguma alteração");
         getContentPane().add(jLabel5);
@@ -114,10 +104,6 @@ public class RUDcliente extends javax.swing.JFrame {
         EditarUser editar = new EditarUser(usuarios.get(number));
         editar.setVisible(true);        
     }//GEN-LAST:event_jTable1MouseClicked
-
-    private void jButtonAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarClienteActionPerformed
-
-    }//GEN-LAST:event_jButtonAtualizarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,7 +141,6 @@ public class RUDcliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAtualizarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
