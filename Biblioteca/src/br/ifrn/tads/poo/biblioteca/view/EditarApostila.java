@@ -74,13 +74,10 @@ public class EditarApostila extends javax.swing.JFrame {
         jTextFieldTitulo = new javax.swing.JTextField();
         jTextFieldAutor = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTextFieldCodigo = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
@@ -93,14 +90,14 @@ public class EditarApostila extends javax.swing.JFrame {
         jFormattedTextFieldDInicio = new javax.swing.JFormattedTextField();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListUserName = new javax.swing.JList<>();
+        jListUserName = new javax.swing.JList<String>();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabelFundoTelaPrincipal = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Editar Informações", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
@@ -108,11 +105,11 @@ public class EditarApostila extends javax.swing.JFrame {
 
         jLabel2.setText("Titulo");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(20, 40, 70, 16);
+        jLabel2.setBounds(20, 40, 70, 14);
 
         jLabel3.setText("Autor");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(20, 80, 70, 16);
+        jLabel3.setBounds(20, 80, 70, 14);
 
         jTextFieldCusto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +117,7 @@ public class EditarApostila extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldCusto);
-        jTextFieldCusto.setBounds(130, 170, 310, 28);
+        jTextFieldCusto.setBounds(130, 170, 310, 20);
         jTextFieldCusto.setText(String.valueOf(item.getCusto()));
 
         jTextFieldTitulo.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +126,7 @@ public class EditarApostila extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldTitulo);
-        jTextFieldTitulo.setBounds(130, 40, 310, 28);
+        jTextFieldTitulo.setBounds(130, 40, 310, 20);
         jTextFieldTitulo.setText(item.getTitulo());
 
         jTextFieldAutor.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +135,7 @@ public class EditarApostila extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldAutor);
-        jTextFieldAutor.setBounds(130, 80, 310, 28);
+        jTextFieldAutor.setBounds(130, 80, 310, 20);
         jTextFieldAutor.setText(item.getAutor());
 
         jButton1.setText("Enviar");
@@ -148,23 +145,15 @@ public class EditarApostila extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(20, 250, 90, 28);
-
-        jLabel6.setText("Outra coisa, sempre que apertar Enviar ou o botao deletar, deve aparecer aquela menssagem ");
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(130, 240, 610, 30);
-
-        jLabel7.setText("de confirmação e quando  for clicado 'ok' deve fechar a janela. Veja isso por favor");
-        jPanel2.add(jLabel7);
-        jLabel7.setBounds(130, 280, 600, 16);
+        jButton1.setBounds(20, 220, 90, 23);
 
         jLabel8.setText("Custo");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(20, 170, 80, 16);
+        jLabel8.setBounds(20, 170, 80, 14);
 
         jLabel9.setText("Codigo");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(10, 130, 70, 16);
+        jLabel9.setBounds(20, 130, 70, 14);
 
         jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,31 +161,27 @@ public class EditarApostila extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldCodigo);
-        jTextFieldCodigo.setBounds(130, 120, 310, 28);
+        jTextFieldCodigo.setBounds(130, 130, 310, 20);
         jTextFieldCodigo.setText(Integer.toString(item.getCodigoItem()));
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(20, 10, 760, 350);
+        jPanel2.setBounds(20, 10, 450, 310);
         jPanel2.getAccessibleContext().setAccessibleName("EditarPerfil");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Deletar Livro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
         jPanel3.setLayout(null);
 
-        jLabel5.setText("Yuri, troca essa imagem por um icone que lembre o de deletar");
-        jPanel3.add(jLabel5);
-        jLabel5.setBounds(170, 20, 430, 30);
-
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livroDel.png"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
         jPanel3.add(jButton7);
-        jButton7.setBounds(260, 50, 220, 170);
+        jButton7.setBounds(70, 70, 190, 150);
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(20, 660, 760, 270);
+        jPanel3.setBounds(470, 10, 310, 310);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Status e Locação do Item", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
         jPanel4.setLayout(null);
@@ -218,7 +203,7 @@ public class EditarApostila extends javax.swing.JFrame {
 
         jLabel10.setText("Aqui seria alugar/devolver");
         jPanel4.add(jLabel10);
-        jLabel10.setBounds(40, 30, 180, 16);
+        jLabel10.setBounds(40, 30, 180, 14);
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png"))); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -242,23 +227,23 @@ public class EditarApostila extends javax.swing.JFrame {
 
         jLabel14.setText("Data Fim");
         jPanel5.add(jLabel14);
-        jLabel14.setBounds(20, 70, 80, 16);
+        jLabel14.setBounds(20, 70, 80, 14);
 
         jLabel15.setText("Data Inicio");
         jPanel5.add(jLabel15);
-        jLabel15.setBounds(20, 30, 80, 16);
+        jLabel15.setBounds(20, 30, 80, 14);
 
         jFormattedTextFieldDfim.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         jPanel5.add(jFormattedTextFieldDfim);
-        jFormattedTextFieldDfim.setBounds(130, 70, 120, 28);
+        jFormattedTextFieldDfim.setBounds(130, 70, 120, 20);
 
         jFormattedTextFieldDInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         jPanel5.add(jFormattedTextFieldDInicio);
-        jFormattedTextFieldDInicio.setBounds(130, 30, 120, 28);
+        jFormattedTextFieldDInicio.setBounds(130, 30, 120, 20);
 
         jLabel13.setText("Nome Usuario");
         jPanel5.add(jLabel13);
-        jLabel13.setBounds(320, 20, 100, 16);
+        jLabel13.setBounds(320, 20, 100, 14);
 
         jListUserName.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = userComponent;
@@ -286,22 +271,22 @@ public class EditarApostila extends javax.swing.JFrame {
 
         jLabel11.setText("Aqui seria pagar Multa/caso estiver Atrasado ou os dados para alugar");
         jPanel4.add(jLabel11);
-        jLabel11.setBounds(300, 30, 450, 16);
+        jLabel11.setBounds(300, 30, 450, 14);
 
         jLabel12.setText("Não se preocupa com um estar por cima do outro, pq na hora de mostrar so vai aparecer um deles");
         jPanel4.add(jLabel12);
-        jLabel12.setBounds(40, 240, 690, 16);
+        jLabel12.setBounds(40, 240, 690, 14);
 
         getContentPane().add(jPanel4);
-        jPanel4.setBounds(20, 380, 760, 270);
+        jPanel4.setBounds(20, 340, 760, 270);
 
         jLabelFundoTelaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/fundoTelaPrincipal.png"))); // NOI18N
         jLabelFundoTelaPrincipal.setMaximumSize(new java.awt.Dimension(800, 2000));
         jLabelFundoTelaPrincipal.setMinimumSize(new java.awt.Dimension(800, 1200));
         getContentPane().add(jLabelFundoTelaPrincipal);
-        jLabelFundoTelaPrincipal.setBounds(0, 0, 800, 450);
+        jLabelFundoTelaPrincipal.setBounds(0, 0, 800, 630);
 
-        setSize(new java.awt.Dimension(816, 997));
+        setSize(new java.awt.Dimension(816, 666));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -337,6 +322,7 @@ public class EditarApostila extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         //Deletando item
         aController.delete(item);
+        dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
@@ -419,9 +405,6 @@ public class EditarApostila extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelFundoTelaPrincipal;

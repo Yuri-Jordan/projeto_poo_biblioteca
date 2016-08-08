@@ -8,6 +8,7 @@ package br.ifrn.tads.poo.biblioteca.view;
 import br.ifrn.tads.poo.biblioteca.usuario.Usuario;
 import br.ifrn.tads.poo.biblioteca.Dao.UsuarioDao;
 import br.ifrn.tads.poo.biblioteca.controller.UsuarioController;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -90,31 +91,26 @@ public class CadastrarCliente extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(81, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(92, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldCEndereco))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
                         .addGap(18, 18, 18)
-                        .addComponent(jTextFieldCNome, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextFieldCId_Biblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(14, 14, 14)
-                                    .addComponent(jTextFieldCCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(29, 29, 29)
-                                    .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(66, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldCNome, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldCId_Biblioteca, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldCCpf, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))))
+                .addContainerGap(72, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(280, 280, 280)
                 .addComponent(jButtonCCadastrar)
@@ -162,17 +158,24 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private void jButtonCCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCCadastrarActionPerformed
         UsuarioController uController = new UsuarioController();
         
-        //Cadastrando um usuario
-        Usuario cliente = new Usuario();
-        cliente.setBiblioteca_id(1);    //Biblioteca padrão é 1
-        cliente.setNome(jTextFieldCNome.getText());
-        cliente.setSenha(jPasswordFieldSenha.getText());
-        cliente.setEndereco(jTextFieldCEndereco.getText());
-        cliente.setCpf(jTextFieldCCpf.getText());        
-        
-        uController.cadastrar(cliente);        
-        
-        dispose();
+        if(!(jTextFieldCNome.getText().equals("")||
+             jPasswordFieldSenha.getText().equals("")
+             ))
+        {
+            //Cadastrando um usuario
+            Usuario cliente = new Usuario();
+            cliente.setBiblioteca_id(1);    //Biblioteca padrão é 1
+            cliente.setNome(jTextFieldCNome.getText());
+            cliente.setSenha(jPasswordFieldSenha.getText());
+            cliente.setEndereco(jTextFieldCEndereco.getText());
+            cliente.setCpf(jTextFieldCCpf.getText());        
+
+            uController.cadastrar(cliente);     
+
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor preencha os campos corretamente.","Atenção",JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonCCadastrarActionPerformed
 
     private void jTextFieldCEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCEnderecoActionPerformed
@@ -209,7 +212,6 @@ public class CadastrarCliente extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(CadastrarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

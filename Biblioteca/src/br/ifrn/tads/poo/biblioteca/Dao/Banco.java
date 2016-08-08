@@ -6,7 +6,7 @@ public class Banco {
     private static final String dataBaseUrl = "jdbc:postgresql://localhost:5432/";
     private static final String banco = "biblioteca";
     private static final String username = "postgres";
-    private static final String password = "postgres";
+    private static final String password = "15147";
     private static final String drive = "org.postgresql.Driver";
     private static Statement stmt;
     private static Connection c;
