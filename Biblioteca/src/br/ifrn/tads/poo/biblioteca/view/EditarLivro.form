@@ -285,7 +285,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="if(item.isDevolvido() || item.getDataDevolucao() == null){&#xa;   jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/br/ifrn/tads/poo/biblioteca/imagens/livro-green.png&quot;)));&#xa;} else {&#xa;    jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/br/ifrn/tads/poo/biblioteca/imagens/livro-red.png&quot;)));&#xa;}&#xa;&#xa;if(jButton6.isVisible())&#xa;    jButton8.setEnabled(false);"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="if(item.isDevolvido() || item.getDataDevolucao() == null){&#xa;   jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/br/ifrn/tads/poo/biblioteca/imagens/livro-green.png&quot;)));&#xa;} else {&#xa;    jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/br/ifrn/tads/poo/biblioteca/imagens/livro-red.png&quot;)));&#xa;}&#xa;&#xa;data = new Date();&#xa;if(item.getDataDevolucao() != null &amp;&amp; data.compareTo(item.getDataDevolucao()) &gt; 0 &amp;&amp; !item.isDevolvido()){&#xa;    jButton8.setEnabled(false);&#xa;}"/>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton()"/>
           </AuxValues>
           <Constraints>
@@ -310,7 +310,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="300" y="50" width="460" height="190"/>
+              <AbsoluteConstraints x="270" y="50" width="460" height="190"/>
             </Constraint>
           </Constraints>
 
@@ -399,26 +399,31 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButton6">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/br/ifrn/tads/poo/biblioteca/imagens/pay.png"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//Caso a data de devolu&#xe7;&#xe3;o ja tenha passado e o item nao foi entregue aparece o bot&#xe3;o para pagar a multa&#xa;jButton6.setVisible(false);&#xa;data = new Date();&#xa;if(item.getDataDevolucao() != null &amp;&amp; data.compareTo(item.getDataDevolucao()) &gt; 0 &amp;&amp; !item.isDevolvido()){&#xa;    jButton6.setVisible(true);&#xa;}"/>
-              </AuxValues>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="80" y="10" width="220" height="170"/>
-                </Constraint>
-              </Constraints>
-            </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="jButton6">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/br/ifrn/tads/poo/biblioteca/imagens/pay.png"/>
+            </Property>
+          </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="jPanel4"/>
+            </Property>
+          </AccessibilityProperties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//Caso a data de devolu&#xe7;&#xe3;o ja tenha passado e o item nao foi entregue aparece o bot&#xe3;o para pagar a multa&#xa;jButton6.setVisible(false);&#xa;data = new Date();&#xa;if(item.getDataDevolucao() != null &amp;&amp; data.compareTo(item.getDataDevolucao()) &gt; 0 &amp;&amp; !item.isDevolvido()){&#xa;    jButton6.setVisible(true);&#xa;}"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="380" y="60" width="220" height="170"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="jLabelFundoTelaPrincipal">
