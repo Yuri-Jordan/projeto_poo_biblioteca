@@ -130,35 +130,26 @@ public class CadastrarItem extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jTextFieldLivroISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-=======
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextFieldLivroEdicao)
                                 .addGap(108, 108, 108))))
->>>>>>> 48c7491a0e1288e343c1031ad51715344d4f30c7
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(217, 217, 217)
                                 .addComponent(jButton1))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(3, 3, 3)
                                 .addComponent(jTextFieldLivroCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel10))))
+                                .addComponent(jLabel10)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldLivroEdicao, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextFieldLivroCusto)
-                                .addGap(108, 108, 108)))))
+                        .addComponent(jTextFieldLivroCusto)
+                        .addGap(108, 108, 108)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -379,22 +370,18 @@ public class CadastrarItem extends javax.swing.JFrame {
                 livro.setTitulo(jTextFieldLivroTitulo.getText());
                 livro.setAutor(jTextFieldLivroAutor.getText());
                 livro.setIsbn(jTextFieldLivroISBN.getText());
-                try{
-                    livro.setEdicao(Integer.parseInt(jTextFieldLivroEdicao.getText()));
-                    livro.setCodigoItem(Integer.parseInt(jTextFieldLivroCodigo.getText()));
-                    livro.setCusto(Double.parseDouble(jTextFieldLivroCusto.getText()));
+                livro.setEdicao(Integer.parseInt(jTextFieldLivroEdicao.getText()));
+                livro.setCodigoItem(Integer.parseInt(jTextFieldLivroCodigo.getText()));
+                livro.setCusto(Double.parseDouble(jTextFieldLivroCusto.getText()));
 
-                    cAcervo.createItem(livro);
-                    // limpas os campos após cadastrar
-                    jTextFieldLivroTitulo.setText("");
-                    jTextFieldLivroAutor.setText("");
-                    jTextFieldLivroISBN.setText("");
-                    jTextFieldLivroEdicao.setText("");
-                    jTextFieldLivroCodigo.setText("");
-                    jTextFieldLivroCusto.setText("");
-                }catch(Exception ex){
-                    JOptionPane.showMessageDialog(null, "Por favor preencha o código,custo e edição com caractéres numéricos.","Atenção!",JOptionPane.INFORMATION_MESSAGE);
-                }
+                cAcervo.createItem(livro);
+                // limpas os campos após cadastrar
+                jTextFieldLivroTitulo.setText("");
+                jTextFieldLivroAutor.setText("");
+                jTextFieldLivroISBN.setText("");
+                jTextFieldLivroEdicao.setText("");
+                jTextFieldLivroCodigo.setText("");
+                jTextFieldLivroCusto.setText("");
         }else{
             JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos.","Atenção!",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -413,25 +400,18 @@ public class CadastrarItem extends javax.swing.JFrame {
             apostila.setBibliotecaId(1);
             apostila.setTitulo(jTextFieldAposTitulo.getText());
             apostila.setAutor(jTextFieldAposAutor.getText());        
-            try{   
-                apostila.setCusto(Double.parseDouble(jTextFieldAposCusto.getText()));
-                apostila.setCodigoItem(Integer.parseInt(jTextFieldAposCodigo.getText()));
-                cAcervo.createItem(apostila);
-                // limpa os campos
-                jTextFieldAposTitulo.setText("");
-                jTextFieldAposAutor.setText("");        
-                jTextFieldAposCusto.setText("");
-                jTextFieldAposCodigo.setText("");
-            }catch(Exception ex){
-               JOptionPane.showMessageDialog(null, "Por favor preencha o código e custo com caractéres numéricos.","Atenção!",JOptionPane.INFORMATION_MESSAGE); 
-            }
+            apostila.setCusto(Double.parseDouble(jTextFieldAposCusto.getText()));
+            apostila.setCodigoItem(Integer.parseInt(jTextFieldAposCodigo.getText()));
+
+            cAcervo.createItem(apostila);
+
+            jTextFieldAposTitulo.setText("");
+            jTextFieldAposAutor.setText("");        
+            jTextFieldAposCusto.setText("");
+            jTextFieldAposCodigo.setText("");
         }else{
             JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos.","Atenção!",JOptionPane.INFORMATION_MESSAGE);
         }
-            
-         
-
-            
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -445,14 +425,11 @@ public class CadastrarItem extends javax.swing.JFrame {
             Texto texto = new Texto();
             texto.setBibliotecaId(1);
             texto.setAutor(jTextFieldTextoAutor.getText());
-            try{
-                texto.setCodigoItem(Integer.parseInt(jTextFieldTextoCod.getText()));
-                texto.setCusto(Double.parseDouble(jTextFieldTextoCusto.getText()));
-                cAcervo.createItem(texto);
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Por favor preencha o código e custo com caractéres numéricos.","Atenção!",JOptionPane.INFORMATION_MESSAGE);
-            }
-            // limpa os campos
+            texto.setCodigoItem(Integer.parseInt(jTextFieldTextoCod.getText()));
+            texto.setCusto(Double.parseDouble(jTextFieldTextoCusto.getText()));
+        
+            cAcervo.createItem(texto);
+
             jTextFieldTextoAutor.setText("");
             jTextFieldTextoCod.setText("");
             jTextFieldTextoCusto.setText("");

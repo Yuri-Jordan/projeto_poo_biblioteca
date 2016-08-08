@@ -199,15 +199,7 @@ public class EditarApostila extends javax.swing.JFrame {
             jButton6.setVisible(true);
         }
 
-<<<<<<< HEAD
-        jLabel10.setText("Aqui seria alugar/devolver");
-        jPanel4.add(jLabel10);
-        jLabel10.setBounds(40, 30, 180, 14);
-
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/livro-green.png"))); // NOI18N
-=======
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png"))); // NOI18N
->>>>>>> 48c7491a0e1288e343c1031ad51715344d4f30c7
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -333,13 +325,7 @@ public class EditarApostila extends javax.swing.JFrame {
             item.setPago(false);
             aController.alugarDevolver(item);
             } catch (ParseException ex) {   //Yuri, aqui vc deve manda uma pop-up dizendo que a data esta em formato invalido. Aqui é tratamento de formato de data
-<<<<<<< HEAD
-                Logger.getLogger(EditarApostila.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Por favor digite corretamete as datas. Ex.: 00/00/0000.","Atençao!",JOptionPane.INFORMATION_MESSAGE);
-                
-=======
                 JOptionPane.showMessageDialog(null, "Data em Formato Inválido.","Erro",JOptionPane.ERROR_MESSAGE);
->>>>>>> 48c7491a0e1288e343c1031ad51715344d4f30c7
             }
         } else {    //Ou o item esta sendo devolvido agora?
             item.setDevolvido(true);

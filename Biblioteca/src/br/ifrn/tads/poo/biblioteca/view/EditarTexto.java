@@ -132,19 +132,11 @@ public class EditarTexto extends javax.swing.JFrame {
 
         jLabel8.setText("Custo");
         jPanel2.add(jLabel8);
-<<<<<<< HEAD
-        jLabel8.setBounds(20, 140, 80, 14);
-
-        jLabel9.setText("Codigo");
-        jPanel2.add(jLabel9);
-        jLabel9.setBounds(20, 90, 70, 14);
-=======
         jLabel8.setBounds(10, 140, 80, 16);
 
         jLabel9.setText("Codigo");
         jPanel2.add(jLabel9);
         jLabel9.setBounds(10, 90, 70, 16);
->>>>>>> 48c7491a0e1288e343c1031ad51715344d4f30c7
 
         jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,15 +184,7 @@ public class EditarTexto extends javax.swing.JFrame {
             jButton6.setVisible(true);
         }
 
-<<<<<<< HEAD
-        jLabel10.setText("Aqui seria alugar/devolver");
-        jPanel4.add(jLabel10);
-        jLabel10.setBounds(40, 30, 180, 14);
-
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/livro-green.png"))); // NOI18N
-=======
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png"))); // NOI18N
->>>>>>> 48c7491a0e1288e343c1031ad51715344d4f30c7
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -323,12 +307,7 @@ public class EditarTexto extends javax.swing.JFrame {
             item.setPago(false);
             aController.alugarDevolver(item);
             } catch (ParseException ex) {   //Yuri, aqui vc deve manda uma pop-up dizendo que a data esta em formato invalido. Aqui é tratamento de formato de data
-<<<<<<< HEAD
-                Logger.getLogger(EditarTexto.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Por favor digite corretamete as datas. Ex.: 00/00/0000.","Atençao!",JOptionPane.INFORMATION_MESSAGE);
-=======
                 JOptionPane.showMessageDialog(null, "Data em Formato Inválido.","Erro",JOptionPane.ERROR_MESSAGE);
->>>>>>> 48c7491a0e1288e343c1031ad51715344d4f30c7
             }
         } else {    //Ou o item esta sendo devolvido agora?
             item.setDevolvido(true);

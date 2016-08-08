@@ -86,7 +86,7 @@ public class TelaPrincipalPadrao extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBarTelaPrincipal);
 
-        setSize(new java.awt.Dimension(816, 514));
+        setSize(new java.awt.Dimension(816, 639));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     // Sai do atual usuário pelo sub menu trocar usuário, contido no menu SAIR.
