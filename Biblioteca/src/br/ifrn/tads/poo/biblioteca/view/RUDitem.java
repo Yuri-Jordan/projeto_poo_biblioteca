@@ -49,7 +49,7 @@ public class RUDitem extends javax.swing.JFrame {
             obj[i][1] = itens.get(i).getCodigoItem();            
             obj[i][3] = itens.get(i).getCusto();
             //Verifica se a data é nula o se já esta alugado. Caso possa esta alugado coloca sim caso contrario não
-            obj[i][4] = itens.get(i).getDataAluguel() != null && date.compareTo(itens.get(i).getDataDevolucao()) < 0 ? "Sim" : "Não";            
+            obj[i][4] = itens.get(i).getDataAluguel() != null && !itens.get(i).isDevolvido() ? "Não" : "Sim";            
         }                        
         initComponents();
         

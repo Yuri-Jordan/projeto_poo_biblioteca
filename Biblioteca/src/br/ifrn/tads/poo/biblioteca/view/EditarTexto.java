@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -324,17 +325,17 @@ public class EditarTexto extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCodigoActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        System.out.println(item.isDevolvido());
+        
         if(item.isDevolvido() || item.getDataAluguel()==null){ //vai alugar o item?
             try {
             item.setDataAluguel(dFormat.parse(jFormattedTextFieldDInicio.getText()));
             item.setDataDevolucao(dFormat.parse(jFormattedTextFieldDfim.getText()));   
-            item.setUserId(userId);
+            item.setUserId(usuarios.get(userId).getId());
             item.setDevolvido(false);
             item.setPago(false);
             aController.alugarDevolver(item);
             } catch (ParseException ex) {   //Yuri, aqui vc deve manda uma pop-up dizendo que a data esta em formato invalido. Aqui é tratamento de formato de data
-                Logger.getLogger(EditarTexto.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Data em Formato Inválido.","Erro",JOptionPane.ERROR_MESSAGE);
             }
         } else {    //Ou o item esta sendo devolvido agora?
             item.setDevolvido(true);
