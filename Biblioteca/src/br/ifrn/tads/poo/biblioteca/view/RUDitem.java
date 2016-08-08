@@ -97,12 +97,12 @@ public class RUDitem extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(120, 90, 600, 430);
+        jScrollPane1.setBounds(20, 60, 700, 460);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Clique no item que deseja modificar");
+        jLabel2.setText("Clique no ítem que deseja modificar");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(300, 60, 260, 17);
+        jLabel2.setBounds(250, 20, 260, 17);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/fundoTelaPrincipal.png"))); // NOI18N
         getContentPane().add(jLabel1);

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -205,7 +206,7 @@ public class EditarApostila extends javax.swing.JFrame {
         jPanel4.add(jLabel10);
         jLabel10.setBounds(40, 30, 180, 14);
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png"))); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/livro-green.png"))); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -341,6 +342,8 @@ public class EditarApostila extends javax.swing.JFrame {
             aController.alugarDevolver(item);
             } catch (ParseException ex) {   //Yuri, aqui vc deve manda uma pop-up dizendo que a data esta em formato invalido. Aqui é tratamento de formato de data
                 Logger.getLogger(EditarApostila.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Por favor digite corretamete as datas. Ex.: 00/00/0000.","Atençao!",JOptionPane.INFORMATION_MESSAGE);
+                
             }
         } else {    //Ou o item esta sendo devolvido agora?
             item.setDevolvido(true);

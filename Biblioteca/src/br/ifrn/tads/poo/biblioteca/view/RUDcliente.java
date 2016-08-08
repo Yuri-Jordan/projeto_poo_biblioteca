@@ -85,7 +85,7 @@ public class RUDcliente extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 240, 680, 280);
+        jScrollPane1.setBounds(20, 70, 680, 450);
 
         jButtonAtualizarCliente.setText("Atualizar");
         jButtonAtualizarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -94,12 +94,12 @@ public class RUDcliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAtualizarCliente);
-        jButtonAtualizarCliente.setBounds(603, 203, 90, 30);
+        jButtonAtualizarCliente.setBounds(610, 40, 90, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Clique no usuario que deseja realizar alguma alteração");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(200, 210, 380, 17);
+        jLabel5.setBounds(190, 30, 380, 17);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/fundoTelaPrincipal.png"))); // NOI18N

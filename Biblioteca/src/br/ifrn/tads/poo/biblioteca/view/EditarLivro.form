@@ -287,8 +287,8 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton8">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png&quot;))" type="code"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/br/ifrn/tads/poo/biblioteca/imagens/livro-green.png"/>
             </Property>
           </Properties>
           <Events>
