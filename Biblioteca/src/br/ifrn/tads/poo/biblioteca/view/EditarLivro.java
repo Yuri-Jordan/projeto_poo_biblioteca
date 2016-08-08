@@ -228,8 +228,10 @@ public class EditarLivro extends javax.swing.JFrame {
             jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/livro-red.png")));
         }
 
-        if(jButton6.isVisible())
-        jButton8.setEnabled(false);
+        data = new Date();
+        if(item.getDataDevolucao() != null && data.compareTo(item.getDataDevolucao()) > 0 && !item.isDevolvido()){
+            jButton8.setEnabled(false);
+        }
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alugar Livro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
         jPanel5.setLayout(null);
@@ -269,29 +271,30 @@ public class EditarLivro extends javax.swing.JFrame {
         jPanel5.add(jScrollPane1);
         jScrollPane1.setBounds(300, 40, 140, 130);
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/pay.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jButton6);
-        jButton6.setBounds(80, 10, 220, 170);
-        //Caso a data de devolução ja tenha passado e o item nao foi entregue aparece o botão para pagar a multa
-        jButton6.setVisible(false);
-        data = new Date();
-        if(item.getDataDevolucao() != null && data.compareTo(item.getDataDevolucao()) > 0 && !item.isDevolvido()){
-            jButton6.setVisible(true);
-        }
-
         jPanel4.add(jPanel5);
-        jPanel5.setBounds(300, 50, 460, 190);
+        jPanel5.setBounds(270, 50, 460, 190);
         //Caso o botão para pagar multa nao esteja visivel aparece para alugar
         jPanel5.setVisible(false);
         data = new Date();
         if(item.getDataDevolucao() == null || item.isDevolvido()){
             jPanel5.setVisible(true);
         }
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/pay.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton6);
+        jButton6.setBounds(380, 60, 220, 170);
+        //Caso a data de devolução ja tenha passado e o item nao foi entregue aparece o botão para pagar a multa
+        jButton6.setVisible(false);
+        data = new Date();
+        if(item.getDataDevolucao() != null && data.compareTo(item.getDataDevolucao()) > 0 && !item.isDevolvido()){
+            jButton6.setVisible(true);
+        }
+        jButton6.getAccessibleContext().setAccessibleParent(jPanel4);
 
         getContentPane().add(jPanel4);
         jPanel4.setBounds(20, 380, 760, 270);
