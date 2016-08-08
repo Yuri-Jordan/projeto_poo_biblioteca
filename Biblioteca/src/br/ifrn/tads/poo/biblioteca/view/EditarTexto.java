@@ -80,7 +80,6 @@ public class EditarTexto extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -89,9 +88,7 @@ public class EditarTexto extends javax.swing.JFrame {
         jFormattedTextFieldDInicio = new javax.swing.JFormattedTextField();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListUserName = new javax.swing.JList<String>();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        jListUserName = new javax.swing.JList<>();
         jLabelFundoTelaPrincipal = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
@@ -104,7 +101,7 @@ public class EditarTexto extends javax.swing.JFrame {
 
         jLabel3.setText("Autor");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(20, 50, 70, 14);
+        jLabel3.setBounds(20, 50, 70, 16);
 
         jTextFieldCusto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +109,7 @@ public class EditarTexto extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldCusto);
-        jTextFieldCusto.setBounds(130, 140, 310, 20);
+        jTextFieldCusto.setBounds(130, 140, 310, 28);
         jTextFieldCusto.setText(String.valueOf(item.getCusto()));
 
         jTextFieldAutor.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +118,7 @@ public class EditarTexto extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldAutor);
-        jTextFieldAutor.setBounds(130, 50, 310, 20);
+        jTextFieldAutor.setBounds(130, 50, 310, 28);
         jTextFieldAutor.setText(item.getAutor());
 
         jButton1.setText("Enviar");
@@ -131,15 +128,15 @@ public class EditarTexto extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(10, 190, 90, 23);
+        jButton1.setBounds(10, 190, 90, 28);
 
         jLabel8.setText("Custo");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(10, 140, 80, 14);
+        jLabel8.setBounds(10, 140, 80, 16);
 
         jLabel9.setText("Codigo");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(10, 90, 70, 14);
+        jLabel9.setBounds(10, 90, 70, 16);
 
         jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,14 +144,14 @@ public class EditarTexto extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldCodigo);
-        jTextFieldCodigo.setBounds(130, 90, 310, 20);
+        jTextFieldCodigo.setBounds(130, 90, 310, 28);
         jTextFieldCodigo.setText(Integer.toString(item.getCodigoItem()));
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(20, 10, 450, 270);
         jPanel2.getAccessibleContext().setAccessibleName("EditarPerfil");
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Deletar Livro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Deletar Texto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
         jPanel3.setLayout(null);
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livroDel.png"))); // NOI18N
@@ -187,10 +184,6 @@ public class EditarTexto extends javax.swing.JFrame {
             jButton6.setVisible(true);
         }
 
-        jLabel10.setText("Aqui seria alugar/devolver");
-        jPanel4.add(jLabel10);
-        jLabel10.setBounds(40, 30, 180, 14);
-
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/icon_livro.png"))); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,28 +201,28 @@ public class EditarTexto extends javax.swing.JFrame {
         if(jButton6.isVisible())
         jButton8.setEnabled(false);
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alugar Livro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alugar Texto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Symbol", 1, 18), new java.awt.Color(255, 153, 0))); // NOI18N
         jPanel5.setLayout(null);
 
         jLabel14.setText("Data Fim");
         jPanel5.add(jLabel14);
-        jLabel14.setBounds(20, 70, 80, 14);
+        jLabel14.setBounds(20, 70, 80, 16);
 
         jLabel15.setText("Data Inicio");
         jPanel5.add(jLabel15);
-        jLabel15.setBounds(20, 30, 80, 14);
+        jLabel15.setBounds(20, 30, 80, 16);
 
         jFormattedTextFieldDfim.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         jPanel5.add(jFormattedTextFieldDfim);
-        jFormattedTextFieldDfim.setBounds(130, 70, 120, 20);
+        jFormattedTextFieldDfim.setBounds(130, 70, 120, 28);
 
         jFormattedTextFieldDInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         jPanel5.add(jFormattedTextFieldDInicio);
-        jFormattedTextFieldDInicio.setBounds(130, 30, 120, 20);
+        jFormattedTextFieldDInicio.setBounds(130, 30, 120, 28);
 
         jLabel13.setText("Nome Usuario");
         jPanel5.add(jLabel13);
-        jLabel13.setBounds(320, 20, 100, 14);
+        jLabel13.setBounds(320, 20, 100, 16);
 
         jListUserName.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = userComponent;
@@ -254,14 +247,6 @@ public class EditarTexto extends javax.swing.JFrame {
         if(item.getDataDevolucao() == null || item.isDevolvido()){
             jPanel5.setVisible(true);
         }
-
-        jLabel11.setText("Aqui seria pagar Multa/caso estiver Atrasado ou os dados para alugar");
-        jPanel4.add(jLabel11);
-        jLabel11.setBounds(300, 30, 450, 14);
-
-        jLabel12.setText("Não se preocupa com um estar por cima do outro, pq na hora de mostrar so vai aparecer um deles");
-        jPanel4.add(jLabel12);
-        jLabel12.setBounds(40, 240, 690, 14);
 
         getContentPane().add(jPanel4);
         jPanel4.setBounds(20, 310, 760, 270);
@@ -387,9 +372,6 @@ public class EditarTexto extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JFormattedTextField jFormattedTextFieldDInicio;
     private javax.swing.JFormattedTextField jFormattedTextFieldDfim;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;

@@ -66,19 +66,19 @@ public class EditarUser extends javax.swing.JFrame {
 
         jLabel1.setText("cpf");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(20, 160, 70, 14);
+        jLabel1.setBounds(20, 160, 70, 16);
 
         jLabel2.setText("Nome");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(20, 40, 27, 14);
+        jLabel2.setBounds(20, 40, 80, 16);
 
         jLabel3.setText("Password");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(20, 80, 70, 14);
+        jLabel3.setBounds(20, 80, 90, 16);
 
         jLabel4.setText("Endereço");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(20, 120, 70, 14);
+        jLabel4.setBounds(20, 120, 70, 16);
 
         jTextFieldCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +86,7 @@ public class EditarUser extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldCpf);
-        jTextFieldCpf.setBounds(130, 160, 310, 20);
+        jTextFieldCpf.setBounds(130, 160, 310, 28);
         jTextFieldCpf.setText(user.getCpf());
 
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +95,7 @@ public class EditarUser extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldNome);
-        jTextFieldNome.setBounds(130, 40, 310, 20);
+        jTextFieldNome.setBounds(130, 40, 310, 28);
         jTextFieldNome.setText(user.getNome());
 
         jTextFieldSenha.setText("****");
@@ -105,7 +105,7 @@ public class EditarUser extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldSenha);
-        jTextFieldSenha.setBounds(130, 80, 310, 20);
+        jTextFieldSenha.setBounds(130, 80, 310, 28);
 
         jTextFieldEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +113,7 @@ public class EditarUser extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldEndereco);
-        jTextFieldEndereco.setBounds(130, 120, 310, 20);
+        jTextFieldEndereco.setBounds(130, 120, 310, 28);
         jTextFieldEndereco.setText(user.getEndereco());
 
         jButton1.setText("Enviar");
@@ -123,7 +123,7 @@ public class EditarUser extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(20, 220, 72, 23);
+        jButton1.setBounds(20, 220, 100, 28);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(20, 10, 450, 270);
