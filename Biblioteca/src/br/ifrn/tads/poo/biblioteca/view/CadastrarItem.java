@@ -9,6 +9,7 @@ import br.ifrn.tads.poo.biblioteca.acervo.Apostila;
 import br.ifrn.tads.poo.biblioteca.acervo.Livro;
 import br.ifrn.tads.poo.biblioteca.acervo.Texto;
 import br.ifrn.tads.poo.biblioteca.controller.AcervoController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -188,7 +189,7 @@ public class CadastrarItem extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setText("Cod Item");
+        jLabel11.setText("Cod Item :");
 
         jLabel12.setText("Custo Multa");
 
@@ -197,29 +198,32 @@ public class CadastrarItem extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jTextFieldAposTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldAposAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel6)
-                        .addGap(163, 163, 163)
-                        .addComponent(jButton3)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldAposCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel12)
-                        .addGap(6, 6, 6)
-                        .addComponent(jTextFieldAposCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jTextFieldAposCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(89, 89, 89)
+                                .addComponent(jLabel12)
+                                .addGap(6, 6, 6)
+                                .addComponent(jTextFieldAposCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jTextFieldAposTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldAposAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(218, 218, 218)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,47 +350,91 @@ public class CadastrarItem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         AcervoController cAcervo = new AcervoController();
+       // só será possível cadastrar se os campos não estiverem vazios
+        if(!(jTextFieldLivroTitulo.getText().equals("")||
+             jTextFieldLivroAutor.getText().equals("")||
+             jTextFieldLivroISBN.getText().equals("")||
+             jTextFieldLivroEdicao.getText().equals("")||
+             jTextFieldLivroCodigo.getText().equals("")||
+             jTextFieldLivroCusto.getText().equals("")))
+        {
+                Livro livro = new Livro();
+                livro.setBibliotecaId(1);
+                livro.setTitulo(jTextFieldLivroTitulo.getText());
+                livro.setAutor(jTextFieldLivroAutor.getText());
+                livro.setIsbn(jTextFieldLivroISBN.getText());
+                livro.setEdicao(Integer.parseInt(jTextFieldLivroEdicao.getText()));
+                livro.setCodigoItem(Integer.parseInt(jTextFieldLivroCodigo.getText()));
+                livro.setCusto(Double.parseDouble(jTextFieldLivroCusto.getText()));
+
+                cAcervo.createItem(livro);
+                // limpas os campos após cadastrar
+                jTextFieldLivroTitulo.setText("");
+                jTextFieldLivroAutor.setText("");
+                jTextFieldLivroISBN.setText("");
+                jTextFieldLivroEdicao.setText("");
+                jTextFieldLivroCodigo.setText("");
+                jTextFieldLivroCusto.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos.","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
         
-        Livro livro = new Livro();
-        livro.setBibliotecaId(1);
-        livro.setTitulo(jTextFieldLivroTitulo.getText());
-        livro.setAutor(jTextFieldLivroAutor.getText());
-        livro.setIsbn(jTextFieldLivroISBN.getText());
-        livro.setEdicao(Integer.parseInt(jTextFieldLivroEdicao.getText()));
-        livro.setCodigoItem(Integer.parseInt(jTextFieldLivroCodigo.getText()));
-        livro.setCusto(Double.parseDouble(jTextFieldLivroCusto.getText()));
-        
-        cAcervo.createItem(livro);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         AcervoController cAcervo = new AcervoController();
+        // só será possível cadastrar se os campos não estiverem vazios
+        if(!(jTextFieldAposTitulo.getText().equals("")||
+             jTextFieldAposAutor.getText().equals("")||
+             jTextFieldAposCusto.getText().equals("")||
+             jTextFieldAposCodigo.getText().equals("")))
+        {
+            Apostila apostila = new Apostila();
+            apostila.setBibliotecaId(1);
+            apostila.setTitulo(jTextFieldAposTitulo.getText());
+            apostila.setAutor(jTextFieldAposAutor.getText());        
+            apostila.setCusto(Double.parseDouble(jTextFieldAposCusto.getText()));
+            apostila.setCodigoItem(Integer.parseInt(jTextFieldAposCodigo.getText()));
+
+            cAcervo.createItem(apostila);
+
+            jTextFieldAposTitulo.setText("");
+            jTextFieldAposAutor.setText("");        
+            jTextFieldAposCusto.setText("");
+            jTextFieldAposCodigo.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos.","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
         
-        Apostila apostila = new Apostila();
-        apostila.setBibliotecaId(1);
-        apostila.setTitulo(jTextFieldAposTitulo.getText());
-        apostila.setAutor(jTextFieldAposAutor.getText());        
-        apostila.setCusto(Double.parseDouble(jTextFieldAposCusto.getText()));
-        apostila.setCodigoItem(Integer.parseInt(jTextFieldAposCodigo.getText()));
-        
-        cAcervo.createItem(apostila);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         AcervoController cAcervo = new AcervoController();
+        // só será possível cadastrar se os campos não estiverem vazios
+        if(!(jTextFieldTextoAutor.getText().equals("")||
+             jTextFieldTextoCod.getText().equals("")||
+             jTextFieldTextoCusto.getText().equals("")))
+        {   
+            Texto texto = new Texto();
+            texto.setBibliotecaId(1);
+            texto.setAutor(jTextFieldTextoAutor.getText());
+            texto.setCodigoItem(Integer.parseInt(jTextFieldTextoCod.getText()));
+            texto.setCusto(Double.parseDouble(jTextFieldTextoCusto.getText()));
         
-        Texto texto = new Texto();
-        texto.setBibliotecaId(1);
-        texto.setAutor(jTextFieldTextoAutor.getText());
-        texto.setCodigoItem(Integer.parseInt(jTextFieldTextoCod.getText()));
-        texto.setCusto(Double.parseDouble(jTextFieldTextoCusto.getText()));
-        
-        cAcervo.createItem(texto);
+            cAcervo.createItem(texto);
+
+            jTextFieldTextoAutor.setText("");
+            jTextFieldTextoCod.setText("");
+            jTextFieldTextoCusto.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos.","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

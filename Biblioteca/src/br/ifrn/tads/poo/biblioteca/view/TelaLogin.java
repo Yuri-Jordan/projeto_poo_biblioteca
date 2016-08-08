@@ -43,7 +43,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonLogin);
-        jButtonLogin.setBounds(310, 300, 80, 28);
+        jButtonLogin.setBounds(310, 300, 80, 23);
 
         jLabelIconeTelaLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ifrn/tads/poo/biblioteca/imagens/iconeLogin.png"))); // NOI18N
         getContentPane().add(jLabelIconeTelaLogin);
@@ -70,7 +70,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(210, 330, 140, 20);
+        jLabel1.setBounds(210, 330, 80, 20);
         getContentPane().add(jPasswordFieldSenha);
         jPasswordFieldSenha.setBounds(210, 260, 180, 30);
 
@@ -97,28 +97,32 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         //Verifica se o usuario existe no sistema. o usuario padrao é login:admin | passowrd:senha
         Usuario user = usuarioController.login(jTextFieldUserLogin.getText(),jPasswordFieldSenha.getText());
-        if (user!=null){
-            
-            //Yuri depois de verificar se ele logou, aqui vc verifica que tipo de usuario ele é
-            if(user instanceof Administrador){  //Administrador?
-                TelaPrincipal telaPrincipal = new TelaPrincipal();
-                telaPrincipal.setVisible(true);
-                dispose();
-            } else if(user instanceof Usuario) { //Padrão?
-                TelaPrincipalPadrao telaPadrao = new TelaPrincipalPadrao();
-                telaPadrao.setVisible(true);
-                dispose();
+        
+        if(!(jTextFieldUserLogin.getText().equals("") && jPasswordFieldSenha.getText().equals("")) ){
+            if (user!=null){
+
+                //Yuri depois de verificar se ele logou, aqui vc verifica que tipo de usuario ele é
+                if(user instanceof Administrador){  //Administrador?
+                    TelaPrincipal telaPrincipal = new TelaPrincipal();
+                    telaPrincipal.setVisible(true);
+                    dispose();
+                } else if(user instanceof Usuario) { //Padrão?
+                    TelaPrincipalPadrao telaPadrao = new TelaPrincipalPadrao();
+                    telaPadrao.setVisible(true);
+                    dispose();
+                }
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Login ou Senha inválido.","Erro",JOptionPane.ERROR_MESSAGE);
             }
-                        
         }else{
-            JOptionPane.showMessageDialog(null, "Login ou Senha inválido.","Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor preencha os campos.","Atençao!",JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         CadastrarCliente cCliente = new CadastrarCliente();
         cCliente.setVisible(true);
-        dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
 
 
